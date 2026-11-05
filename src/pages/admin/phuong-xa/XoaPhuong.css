@@ -1,0 +1,263 @@
+.xoa-phuong-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgb(21 29 34 / 55%);
+  backdrop-filter: blur(3px);
+}
+
+.xoa-phuong-modal {
+  width: 100%;
+  max-width: 460px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #f1e4e4;
+  border-radius: 17px;
+  box-shadow: 0 24px 75px rgb(0 0 0 / 20%);
+  animation: xoa-phuong-appear 0.2s ease;
+}
+
+@keyframes xoa-phuong-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+
+.xoa-phuong-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px 0;
+}
+
+.xoa-phuong-icon {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c44747;
+  background: #fff0f0;
+  border-radius: 15px;
+}
+
+.xoa-phuong-close {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #78868c;
+  background: #f4f6f7;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.xoa-phuong-close:hover {
+  color: #c44747;
+  background: #ffe6e6;
+}
+
+.xoa-phuong-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Nội dung */
+
+.xoa-phuong-body {
+  padding: 20px 24px 23px;
+}
+
+.xoa-phuong-body h2 {
+  margin: 0 0 10px;
+  color: #29383e;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.xoa-phuong-body > p {
+  margin: 0 0 20px;
+  color: #7b888e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Thông tin được chọn */
+
+.xoa-phuong-info {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 16px;
+  background: #fafbfc;
+  border: 1px solid #e8edef;
+  border-radius: 11px;
+}
+
+.xoa-phuong-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.xoa-phuong-info span {
+  color: #8b989e;
+  font-size: 11px;
+}
+
+.xoa-phuong-info strong {
+  color: #394950;
+  font-size: 13px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Cảnh báo */
+
+.xoa-phuong-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 16px;
+  padding: 12px;
+  color: #98651f;
+  background: #fff8e9;
+  border: 1px solid #f4e5bf;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.xoa-phuong-warning svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Lỗi */
+
+.xoa-phuong-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 12px;
+  color: #b33d3d;
+  background: #fff0f0;
+  border: 1px solid #f2d5d5;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.xoa-phuong-error svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.xoa-phuong-error span {
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+.xoa-phuong-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px;
+  background: #fafbfc;
+  border-top: 1px solid #edf0f2;
+}
+
+.xoa-phuong-btn-cancel,
+.xoa-phuong-btn-delete {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.xoa-phuong-btn-cancel {
+  color: #5d6b72;
+  background: #fff;
+  border: 1px solid #dce3e6;
+}
+
+.xoa-phuong-btn-cancel:hover:not(:disabled) {
+  background: #f0f3f4;
+}
+
+.xoa-phuong-btn-delete {
+  color: #fff;
+  background: #d94c4c;
+  border: 1px solid #d94c4c;
+}
+
+.xoa-phuong-btn-delete:hover:not(:disabled) {
+  background: #bc3737;
+}
+
+.xoa-phuong-btn-cancel:disabled,
+.xoa-phuong-btn-delete:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.xoa-phuong-spinner {
+  animation: xoa-phuong-spin 1s linear infinite;
+}
+
+@keyframes xoa-phuong-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .xoa-phuong-overlay {
+    padding: 12px;
+  }
+
+  .xoa-phuong-header {
+    padding: 17px 17px 0;
+  }
+
+  .xoa-phuong-body {
+    padding: 18px 17px;
+  }
+
+  .xoa-phuong-footer {
+    padding: 14px 17px;
+  }
+
+  .xoa-phuong-btn-cancel,
+  .xoa-phuong-btn-delete {
+    flex: 1;
+    padding: 10px 8px;
+  }
+}

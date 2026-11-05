@@ -1,0 +1,1400 @@
+/* =====================================================
+   TRANG DANH MỤC - ĐỊA ĐIỂM ĂN UỐNG CẦN THƠ
+   Màu chủ đạo: Cam - Tím - Đỏ
+   + Fix kích thước emoji/icon + Thêm hiệu ứng chuyển động
+===================================================== */
+
+.danh-muc-page {
+  --dm-primary: #e85d2a;
+  --dm-primary-dark: #d94b20;
+  --dm-primary-light: #fff0e7;
+  --dm-purple: #6b2d8a;
+  --dm-purple-dark: #38234a;
+  --dm-red: #bd3d53;
+  --dm-text: #38234a;
+  --dm-muted: #8b808e;
+  --dm-white: #ffffff;
+  --dm-background: #fffaf6;
+
+  min-height: 100vh;
+  margin-top: 50px;
+  color: var(--dm-text);
+  background:
+    radial-gradient(ellipse at 0% 35%, rgba(255, 155, 95, 0.12), transparent 35%),
+    radial-gradient(ellipse at 100% 55%, rgba(112, 36, 119, 0.09), transparent 35%),
+    var(--dm-background);
+}
+
+.danh-muc-page * {
+  box-sizing: border-box;
+}
+
+.danh-muc-page button,
+.danh-muc-page input {
+  font: inherit;
+}
+
+/* =====================================================
+   1. HERO
+===================================================== */
+.danh-muc-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 75px 24px 85px;
+  background: linear-gradient(120deg, #fff7f0 0%, #fffaf6 48%, #f9f0fb 100%);
+}
+
+.danh-muc-hero-container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 55px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.danh-muc-hero-content {
+  max-width: 610px;
+}
+
+.danh-muc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid rgba(232, 93, 42, 0.15);
+  border-radius: 30px;
+  color: var(--dm-primary);
+  background: #fff0e7;
+  font-size: 13px;
+  font-weight: 700;
+  animation: danhMucFadeUp 0.6s ease both, danhMucBadgePulse 2.8s ease-in-out 1.2s infinite;
+}
+
+.danh-muc-hero-content h1 {
+  margin: 22px 0 18px;
+  color: var(--dm-purple-dark);
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  animation: danhMucFadeUp 0.6s 0.1s ease both;
+}
+
+.danh-muc-hero-content h1 span {
+  color: var(--dm-primary);
+}
+
+.danh-muc-hero-description {
+  max-width: 540px;
+  margin: 0 0 28px;
+  color: var(--dm-muted);
+  font-size: 16px;
+  line-height: 1.8;
+  animation: danhMucFadeUp 0.6s 0.2s ease both;
+}
+
+/* Thanh tìm kiếm */
+.danh-muc-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 530px;
+  padding: 8px 9px 8px 18px;
+  border: 1px solid #f0e5df;
+  border-radius: 16px;
+  background: var(--dm-white);
+  box-shadow: 0 12px 35px rgba(74, 43, 57, 0.08);
+  transition: 0.25s ease;
+  animation: danhMucFadeUp 0.6s 0.3s ease both;
+}
+
+.danh-muc-search:focus-within {
+  border-color: rgba(232, 93, 42, 0.55);
+  box-shadow: 0 12px 35px rgba(232, 93, 42, 0.13);
+}
+
+.danh-muc-search-icon {
+  flex-shrink: 0;
+  color: var(--dm-primary);
+}
+
+.danh-muc-search input {
+  width: 100%;
+  min-width: 0;
+  height: 43px;
+  border: none;
+  outline: none;
+  color: var(--dm-text);
+  background: transparent;
+  font-size: 14px;
+}
+
+.danh-muc-search input::placeholder {
+  color: #aaa0a9;
+}
+
+.danh-muc-search button {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 43px;
+  padding: 0 19px;
+  border: none;
+  border-radius: 11px;
+  color: white;
+  background: var(--dm-primary);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+/* Hiệu ứng ánh sáng lướt khi hover nút */
+.danh-muc-search button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: translateX(-130%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.danh-muc-search button:hover {
+  background: var(--dm-primary-dark);
+  transform: translateY(-2px);
+}
+
+.danh-muc-search button:hover::after {
+  animation: danhMucShimmer 0.7s ease;
+}
+
+.danh-muc-hero-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 19px;
+  color: var(--dm-muted);
+  font-size: 13px;
+  animation: danhMucFadeUp 0.6s 0.4s ease both;
+}
+
+/* Hình minh họa bên phải */
+.danh-muc-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 390px;
+  animation: danhMucFadeIn 0.9s 0.25s ease both;
+}
+
+.danh-muc-hero-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.danh-muc-circle-one {
+  width: 330px;
+  height: 330px;
+  background: linear-gradient(135deg, rgba(232, 93, 42, 0.15), rgba(189, 61, 83, 0.12));
+  animation: danhMucPulseRing 5s ease-in-out infinite;
+}
+
+/* Vòng tròn đứt nét xoay chậm */
+.danh-muc-circle-two {
+  width: 245px;
+  height: 245px;
+  border: 2px dashed rgba(107, 45, 138, 0.2);
+  animation: danhMucSpinSlow 26s linear infinite;
+}
+
+.danh-muc-food-main {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 260px;
+  border: 9px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffe1c9, #f9c7ad);
+  box-shadow: 0 25px 65px rgba(116, 58, 69, 0.15);
+  animation: danhMucFloat 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.danh-muc-food-main-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--dm-primary);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* FIX: tăng emoji chính + căn giữa */
+.danh-muc-food-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+  font-size: 110px;
+  line-height: 1;
+}
+
+.danh-muc-food-caption {
+  color: var(--dm-purple-dark);
+  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* Card nổi — FIX emoji + thêm chuyển động lơ lửng */
+.danh-muc-floating-card {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 17px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 12px 35px rgba(56, 35, 74, 0.1);
+  will-change: transform;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.danh-muc-floating-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(56, 35, 74, 0.16);
+}
+
+.danh-muc-floating-top {
+  top: 42px;
+  right: -50px;
+  animation: danhMucFloatSlow 5s ease-in-out infinite;
+}
+
+.danh-muc-floating-bottom {
+  bottom: 15px;
+  left: 25px;
+  animation: danhMucFloatSlowAlt 6s ease-in-out infinite;
+}
+
+/* FIX: emoji đủ lớn, cân xứng với khung 39px */
+.danh-muc-floating-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 12px;
+  color: var(--dm-primary);
+  background: var(--dm-primary-light);
+  font-size: 21px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.danh-muc-floating-card strong {
+  display: block;
+  color: var(--dm-purple-dark);
+  font-size: 13px;
+}
+
+/* FIX: đổi từ span -> small cho khớp JSX, không đè lên icon emoji */
+.danh-muc-floating-card small {
+  display: block;
+  margin-top: 3px;
+  color: var(--dm-muted);
+  font-size: 11px;
+}
+
+/* FIX: căn giữa icon Utensils trong vòng tròn */
+.danh-muc-hero-decoration {
+  position: absolute;
+  top: 35px;
+  left: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(232, 93, 42, 0.08);
+  pointer-events: none;
+}
+
+.danh-muc-hero-decoration::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(232, 93, 42, 0.12);
+  border-radius: 50%;
+  transform: scale(1.35);
+}
+
+/* =====================================================
+   2. KHU VỰC DANH MỤC
+===================================================== */
+.danh-muc-section {
+  padding: 75px 24px 65px;
+}
+
+.danh-muc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.danh-muc-section-heading {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.danh-muc-section-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--dm-primary);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.danh-muc-section-heading h2 {
+  margin: 0;
+  color: var(--dm-purple-dark);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+}
+
+.danh-muc-section-heading p {
+  max-width: 620px;
+  margin: 13px auto 0;
+  color: var(--dm-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.danh-muc-heading-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 17px;
+}
+
+.danh-muc-heading-decoration span {
+  width: 25px;
+  height: 20px;
+  border-radius: 10px;
+  color: white;
+  background: var(--dm-primary);
+}
+
+.danh-muc-heading-decoration span:nth-child(2) {
+  width: 20%;
+  background: var(--dm-purple);
+}
+
+.danh-muc-heading-decoration span:nth-child(3) {
+  background: var(--dm-red);
+}
+
+.danh-muc-loading {
+  padding: 35px 20px;
+  color: var(--dm-muted);
+  text-align: center;
+  font-size: 14px;
+}
+
+.danh-muc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.danh-muc-item {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 205px;
+  padding: 22px;
+  border: 1px solid #f0e7e2;
+  border-radius: 20px;
+  background: var(--dm-white);
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 7px 25px rgba(56, 35, 74, 0.035);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  animation: danhMucFadeUp 0.55s ease both;
+}
+
+/* Hiệu ứng vào lần lượt (stagger) cho card danh mục */
+.danh-muc-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.danh-muc-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.danh-muc-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.danh-muc-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.danh-muc-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.danh-muc-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.danh-muc-item:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.danh-muc-item:nth-child(8) {
+  animation-delay: 0.4s;
+}
+
+.danh-muc-item:hover {
+  border-color: rgba(232, 93, 42, 0.4);
+  box-shadow: 0 16px 35px rgba(56, 35, 74, 0.09);
+  transform: translateY(-6px);
+}
+
+.danh-muc-item.active {
+  border: 2px solid var(--dm-primary);
+  background: linear-gradient(145deg, #fffaf6, #fff0e7);
+  box-shadow: 0 12px 30px rgba(232, 93, 42, 0.12);
+}
+
+.danh-muc-item-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* FIX: tăng emoji/icon trong card danh mục cho cân xứng */
+.danh-muc-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 16px;
+  color: var(--dm-primary);
+  background: #fff0e7;
+  font-size: 31px;
+  line-height: 1;
+  transition: transform 0.3s ease, background 0.25s ease, color 0.25s ease;
+}
+
+/* Hiệu ứng icon bật lên + xoay nhẹ khi hover card */
+.danh-muc-item:hover .danh-muc-item-icon,
+.danh-muc-item.active .danh-muc-item-icon {
+  color: white;
+  background: linear-gradient(135deg, var(--dm-primary), var(--dm-red));
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.danh-muc-item-featured {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 9px;
+  border-radius: 20px;
+  color: #a56b12;
+  background: #fff7df;
+  font-size: 10px;
+  font-weight: 800;
+  animation: danhMucPulseGlow 2.2s ease-in-out infinite;
+}
+
+.danh-muc-item-content {
+  position: relative;
+  z-index: 1;
+  margin-top: 19px;
+}
+
+.danh-muc-item-content h3 {
+  margin: 0 0 8px;
+  color: var(--dm-purple-dark);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+  transition: color 0.25s ease;
+}
+
+.danh-muc-item:hover .danh-muc-item-content h3 {
+  color: var(--dm-primary);
+}
+
+.danh-muc-item-content p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  color: var(--dm-muted);
+  font-size: 13px;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.danh-muc-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 17px;
+  color: var(--dm-primary);
+  font-size: 12px;
+  font-weight: 800;
+  transition: gap 0.25s ease;
+}
+
+.danh-muc-item:hover .danh-muc-item-footer {
+  gap: 14px;
+}
+
+.danh-muc-item-watermark {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  color: rgba(232, 93, 42, 0.055);
+  font-size: 65px;
+  pointer-events: none;
+}
+
+.danh-muc-empty,
+.danh-muc-error {
+  padding: 25px;
+  border-radius: 15px;
+  color: var(--dm-muted);
+  background: white;
+  text-align: center;
+}
+
+.danh-muc-error {
+  color: #bd3d53;
+  background: #fff2f3;
+}
+
+/* =====================================================
+   3. DANH SÁCH QUÁN ĂN THEO DANH MỤC
+===================================================== */
+.danh-muc-quan-section {
+  padding: 65px 24px 85px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.danh-muc-quan-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.danh-muc-quan-heading h2 {
+  margin: 0;
+  color: var(--dm-purple-dark);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+}
+
+.danh-muc-quan-heading p {
+  margin: 10px 0 0;
+  color: var(--dm-muted);
+  font-size: 14px;
+}
+
+.danh-muc-quan-count {
+  flex-shrink: 0;
+  padding: 9px 15px;
+  border-radius: 25px;
+  color: var(--dm-primary);
+  background: var(--dm-primary-light);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.danh-muc-quan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+/* Card quán ăn — thêm hiệu ứng vào lần lượt */
+.danh-muc-quan-card {
+  overflow: hidden;
+  border: 1px solid #f0e8e4;
+  border-radius: 21px;
+  background: white;
+  box-shadow: 0 8px 28px rgba(56, 35, 74, 0.055);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: danhMucFadeUp 0.6s ease both;
+}
+
+.danh-muc-quan-card:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.danh-muc-quan-card:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.danh-muc-quan-card:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.danh-muc-quan-card:nth-child(4) {
+  animation-delay: 0.32s;
+}
+
+.danh-muc-quan-card:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.danh-muc-quan-card:nth-child(6) {
+  animation-delay: 0.48s;
+}
+
+.danh-muc-quan-card:hover {
+  border-color: rgba(232, 93, 42, 0.35);
+  box-shadow: 0 18px 40px rgba(56, 35, 74, 0.12);
+  transform: translateY(-8px);
+}
+
+/* Ảnh quán */
+.danh-muc-quan-image {
+  position: relative;
+  overflow: hidden;
+  height: 215px;
+  background: #f6eee9;
+}
+
+.danh-muc-quan-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.danh-muc-quan-card:hover .danh-muc-quan-image img {
+  transform: scale(1.08);
+}
+
+/* FIX: tăng icon placeholder cho cân xứng */
+.danh-muc-quan-no-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #c6b2c9;
+  background: linear-gradient(135deg, #fff0e7, #f4eafa);
+  font-size: 56px;
+}
+
+.danh-muc-quan-featured {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 11px;
+  border-radius: 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #e85d2a, #bd3d53);
+  font-size: 11px;
+  font-weight: 800;
+  animation: danhMucPulseGlow 2.2s ease-in-out infinite;
+}
+
+/* Nội dung card */
+.danh-muc-quan-content {
+  padding: 20px;
+}
+
+.danh-muc-quan-content h3 {
+  overflow: hidden;
+  margin: 0 0 12px;
+  color: var(--dm-purple-dark);
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.danh-muc-quan-card:hover .danh-muc-quan-content h3 {
+  color: var(--dm-primary);
+}
+
+.danh-muc-quan-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  min-height: 38px;
+  margin-bottom: 13px;
+  color: var(--dm-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.danh-muc-quan-address svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--dm-primary);
+}
+
+.danh-muc-quan-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 15px;
+  color: #d99a21;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.danh-muc-quan-rating span {
+  color: var(--dm-muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.danh-muc-quan-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #f1eae6;
+}
+
+.danh-muc-quan-price {
+  color: var(--dm-primary);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.danh-muc-quan-views {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--dm-muted);
+  font-size: 12px;
+}
+
+.danh-muc-quan-button {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 17px;
+  border: 1px solid rgba(232, 93, 42, 0.2);
+  border-radius: 11px;
+  color: var(--dm-primary);
+  background: #fff8f3;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.danh-muc-quan-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateX(-130%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.danh-muc-quan-button:hover {
+  border-color: var(--dm-primary);
+  color: white;
+  background: var(--dm-primary);
+}
+
+.danh-muc-quan-button:hover::after {
+  animation: danhMucShimmer 0.7s ease;
+}
+
+/* =====================================================
+   4. BANNER CUỐI TRANG
+===================================================== */
+.danh-muc-banner-section {
+  padding: 30px 24px 85px;
+}
+
+.danh-muc-banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  min-height: 245px;
+  margin: 0 auto;
+  padding: 45px 55px;
+  border-radius: 27px;
+  color: white;
+  background: linear-gradient(115deg, #6b2d8a 0%, #9a326d 48%, #e85d2a 100%);
+  box-shadow: 0 18px 45px rgba(107, 45, 138, 0.2);
+  animation: danhMucFadeUp 0.7s ease both;
+}
+
+.danh-muc-banner-decoration {
+  position: absolute;
+  top: -100px;
+  right: 120px;
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: danhMucSpinSlow 30s linear infinite;
+}
+
+.danh-muc-banner-decoration::after {
+  content: "";
+  position: absolute;
+  inset: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+}
+
+.danh-muc-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.danh-muc-banner-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ffe1b8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.danh-muc-banner h2 {
+  margin: 0 0 13px;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.danh-muc-banner p {
+  max-width: 600px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.danh-muc-banner button {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 49px;
+  padding: 0 23px;
+  border: none;
+  border-radius: 12px;
+  color: var(--dm-purple-dark);
+  background: white;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.danh-muc-banner button:hover {
+  color: var(--dm-primary);
+  background: #fff0e7;
+  transform: translateY(-3px);
+}
+
+.danh-muc-banner-icon {
+  font-size: 20px;
+}
+
+/* =====================================================
+   5. KEYFRAMES - HIỆU ỨNG CHUYỂN ĐỘNG
+===================================================== */
+@keyframes danhMucFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes danhMucFloatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes danhMucFloatSlowAlt {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(9px) translateX(-5px);
+  }
+}
+
+@keyframes danhMucFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes danhMucFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes danhMucSpinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes danhMucPulseRing {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.07);
+    opacity: 1;
+  }
+}
+
+@keyframes danhMucPulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(232, 93, 42, 0.35);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px rgba(232, 93, 42, 0);
+  }
+}
+
+@keyframes danhMucBadgePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes danhMucShimmer {
+  0% {
+    transform: translateX(-130%) skewX(-20deg);
+  }
+
+  100% {
+    transform: translateX(320%) skewX(-20deg);
+  }
+}
+
+/* =====================================================
+   6. RESPONSIVE - TABLET
+===================================================== */
+@media (max-width: 1024px) {
+  .danh-muc-hero-container {
+    gap: 25px;
+  }
+
+  .danh-muc-hero-visual {
+    min-height: 340px;
+  }
+
+  .danh-muc-food-main {
+    width: 230px;
+    height: 230px;
+  }
+
+  .danh-muc-food-illustration {
+    font-size: 90px;
+  }
+
+  .danh-muc-circle-one {
+    width: 290px;
+    height: 290px;
+  }
+
+  .danh-muc-circle-two {
+    width: 220px;
+    height: 220px;
+  }
+
+  .danh-muc-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .danh-muc-quan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =====================================================
+   7. RESPONSIVE - MOBILE
+===================================================== */
+@media (max-width: 768px) {
+  .danh-muc-hero {
+    padding: 55px 18px 65px;
+  }
+
+  .danh-muc-hero-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .danh-muc-hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .danh-muc-hero-content h1 {
+    font-size: 37px;
+    letter-spacing: -1px;
+  }
+
+  .danh-muc-hero-description {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 14px;
+  }
+
+  .danh-muc-search {
+    margin: 0 auto;
+  }
+
+  .danh-muc-hero-note {
+    justify-content: center;
+  }
+
+  .danh-muc-hero-visual {
+    min-height: 320px;
+  }
+
+  .danh-muc-food-main {
+    width: 220px;
+    height: 220px;
+  }
+
+  .danh-muc-food-illustration {
+    font-size: 85px;
+  }
+
+  .danh-muc-floating-top {
+    top: 10px;
+    right: 0;
+  }
+
+  .danh-muc-floating-bottom {
+    bottom: 10px;
+    left: 0;
+  }
+
+  .danh-muc-section,
+  .danh-muc-quan-section {
+    padding: 55px 18px;
+  }
+
+  .danh-muc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .danh-muc-item {
+    min-height: 190px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .danh-muc-item-icon {
+    width: 47px;
+    height: 47px;
+    font-size: 26px;
+  }
+
+  .danh-muc-item-content h3 {
+    font-size: 15px;
+  }
+
+  .danh-muc-item-content p {
+    font-size: 12px;
+  }
+
+  .danh-muc-quan-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .danh-muc-quan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .danh-muc-quan-image {
+    height: 165px;
+  }
+
+  .danh-muc-quan-content {
+    padding: 15px;
+  }
+
+  .danh-muc-quan-content h3 {
+    font-size: 15px;
+  }
+
+  .danh-muc-quan-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .danh-muc-banner-section {
+    padding: 15px 18px 60px;
+  }
+
+  .danh-muc-banner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 35px 25px;
+    border-radius: 21px;
+  }
+}
+
+/* =====================================================
+   8. RESPONSIVE - ĐIỆN THOẠI NHỎ
+===================================================== */
+@media (max-width: 480px) {
+  .danh-muc-hero-content h1 {
+    font-size: 31px;
+  }
+
+  .danh-muc-search {
+    gap: 7px;
+    padding-left: 12px;
+  }
+
+  .danh-muc-search input {
+    font-size: 12px;
+  }
+
+  .danh-muc-search button {
+    min-height: 39px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .danh-muc-hero-visual {
+    min-height: 280px;
+  }
+
+  .danh-muc-food-main {
+    width: 185px;
+    height: 185px;
+  }
+
+  .danh-muc-food-illustration {
+    font-size: 75px;
+  }
+
+  .danh-muc-food-caption {
+    font-size: 13px;
+  }
+
+  .danh-muc-circle-one {
+    width: 240px;
+    height: 240px;
+  }
+
+  .danh-muc-circle-two {
+    width: 190px;
+    height: 190px;
+  }
+
+  .danh-muc-floating-card {
+    gap: 7px;
+    padding: 9px 11px;
+  }
+
+  /* FIX: sửa lỗi 80px -> 32px, emoji 17px cân xứng */
+  .danh-muc-floating-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 17px;
+  }
+
+  .danh-muc-floating-card strong {
+    font-size: 11px;
+  }
+
+  .danh-muc-floating-card small {
+    font-size: 9px;
+  }
+
+  /* FIX: span -> small */
+  .danh-muc-grid {
+    gap: 10px;
+  }
+
+  .danh-muc-item {
+    min-height: 180px;
+    padding: 13px;
+  }
+
+  .danh-muc-item-icon {
+    font-size: 24px;
+  }
+
+  .danh-muc-item-featured {
+    padding: 5px 7px;
+    font-size: 9px;
+  }
+
+  .danh-muc-item-content {
+    margin-top: 14px;
+  }
+
+  .danh-muc-item-content h3 {
+    font-size: 13px;
+  }
+
+  .danh-muc-item-content p {
+    font-size: 11px;
+  }
+
+  .danh-muc-item-footer {
+    font-size: 10px;
+  }
+
+  .danh-muc-quan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .danh-muc-quan-image {
+    height: 210px;
+  }
+
+  .danh-muc-quan-meta {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .danh-muc-banner {
+    padding: 30px 20px;
+  }
+
+  .danh-muc-banner h2 {
+    font-size: 25px;
+  }
+
+  .danh-muc-banner p {
+    font-size: 13px;
+  }
+}
+
+/* Tôn trọng cài đặt giảm chuyển động của người dùng */
+@media (prefers-reduced-motion: reduce) {
+
+  .danh-muc-page *,
+  .danh-muc-page *::before,
+  .danh-muc-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

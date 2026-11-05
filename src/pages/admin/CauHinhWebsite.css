@@ -1,0 +1,944 @@
+/* ==========================================
+   TỔNG THỂ
+========================================== */
+
+.cauhinh-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 26px;
+  background: #f6f5f9;
+  color: #29243a;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.cauhinh-page * {
+  box-sizing: border-box;
+}
+
+.cauhinh-page button,
+.cauhinh-page input,
+.cauhinh-page textarea {
+  font-family: inherit;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.cauhinh-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.cauhinh-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cauhinh-header-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: linear-gradient(135deg, #592878, #92275c, #e85d2a);
+  box-shadow: 0 7px 18px rgba(91, 39, 120, 0.2);
+}
+
+.cauhinh-breadcrumb {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #968da6;
+  margin-bottom: 6px;
+}
+
+.cauhinh-header h1 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 800;
+  color: #30233e;
+}
+
+.cauhinh-header p {
+  margin: 6px 0 0;
+  color: #898397;
+  font-size: 13px;
+}
+
+.cauhinh-refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #e6e0ed;
+  border-radius: 9px;
+  background: white;
+  color: #624477;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cauhinh-refresh-btn:hover {
+  background: #f3edf8;
+  border-color: #b89acb;
+}
+
+/* ==========================================
+   TRẠNG THÁI
+========================================== */
+
+.cauhinh-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #e8e2f0;
+  background: #fbf9fd;
+  border-radius: 10px;
+  color: #746486;
+  font-size: 12px;
+}
+
+.cauhinh-status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e69a31;
+  box-shadow: 0 0 0 4px rgba(230, 154, 49, 0.12);
+}
+
+/* ==========================================
+   THÔNG BÁO
+========================================== */
+
+.cauhinh-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  animation: cauhinhFade 0.25s ease;
+}
+
+.cauhinh-toast.success {
+  color: #168452;
+  background: #eaf8f1;
+  border: 1px solid #c7eedb;
+}
+
+.cauhinh-toast.error {
+  color: #d63c47;
+  background: #fff0f0;
+  border: 1px solid #ffd2d5;
+}
+
+@keyframes cauhinhFade {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.cauhinh-layout {
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* ==========================================
+   SIDEBAR TAB
+========================================== */
+
+.cauhinh-tabs {
+  position: sticky;
+  top: 20px;
+  padding: 15px;
+  border: 1px solid #ebe6f0;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(46, 28, 66, 0.035);
+}
+
+.cauhinh-tabs-title {
+  padding: 7px 9px 14px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #a29aaa;
+}
+
+.cauhinh-tab {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 12px;
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #746c81;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cauhinh-tab:hover {
+  background: #f8f4fb;
+  color: #6b2d8a;
+}
+
+.cauhinh-tab.active {
+  color: #6b2d8a;
+  background: linear-gradient(100deg,
+      #f3eafa,
+      #fbf1f5);
+  font-weight: 800;
+  box-shadow: inset 3px 0 #8c3d9c;
+}
+
+.cauhinh-tab.active svg {
+  color: #a33b85;
+}
+
+.cauhinh-tabs-note {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 13px 10px;
+  background: #f8f5fb;
+  border-radius: 10px;
+  color: #84539b;
+}
+
+.cauhinh-tabs-note svg {
+  flex-shrink: 0;
+}
+
+.cauhinh-tabs-note strong {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.cauhinh-tabs-note p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #8f849a;
+}
+
+/* ==========================================
+   NỘI DUNG
+========================================== */
+
+.cauhinh-content {
+  min-width: 0;
+}
+
+.cauhinh-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 16px;
+  margin-top: 3px;
+}
+
+.cauhinh-section-heading h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: #382b48;
+}
+
+.cauhinh-section-heading p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #938a9d;
+}
+
+.cauhinh-section-icon {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.cauhinh-section-icon.purple {
+  color: #7843a1;
+  background: #f0e8f8;
+}
+
+.cauhinh-section-icon.orange {
+  color: #e87935;
+  background: #fff0e5;
+}
+
+.cauhinh-section-icon.blue {
+  color: #3885c9;
+  background: #e9f3fc;
+}
+
+.cauhinh-section-icon.pink {
+  color: #d04d8b;
+  background: #fcebf3;
+}
+
+.cauhinh-section-icon.green {
+  color: #26976d;
+  background: #e8f7ef;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.cauhinh-card {
+  padding: 23px;
+  margin-bottom: 23px;
+  border: 1px solid #ebe6f0;
+  border-radius: 13px;
+  background: white;
+  box-shadow: 0 3px 12px rgba(46, 28, 66, 0.025);
+}
+
+.cauhinh-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 20px;
+}
+
+.cauhinh-field {
+  min-width: 0;
+}
+
+.cauhinh-field.full {
+  grid-column: 1 / -1;
+}
+
+.cauhinh-field>label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 12px;
+  font-weight: 750;
+  color: #45394f;
+}
+
+/* ==========================================
+   INPUT
+========================================== */
+
+.cauhinh-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cauhinh-input-icon {
+  position: absolute;
+  left: 13px;
+  display: flex;
+  align-items: center;
+  color: #9b8ca8;
+  pointer-events: none;
+}
+
+.cauhinh-field input,
+.cauhinh-field textarea,
+.cauhinh-grid>.cauhinh-field>input,
+.cauhinh-grid>.cauhinh-field>textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #e6e1eb;
+  border-radius: 8px;
+  outline: none;
+  background: #fdfcfe;
+  color: #42364d;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.cauhinh-input-wrap input {
+  padding-left: 41px;
+}
+
+.cauhinh-field input::placeholder,
+.cauhinh-field textarea::placeholder {
+  color: #b4acbc;
+  font-size: 12px;
+}
+
+.cauhinh-field input:focus,
+.cauhinh-field textarea:focus {
+  border-color: #8d55a9;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(107, 45, 138, 0.08);
+}
+
+.cauhinh-field textarea {
+  resize: vertical;
+  line-height: 1.7;
+  min-height: 90px;
+}
+
+.cauhinh-field small {
+  display: block;
+  margin-top: 7px;
+  color: #9c94a5;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.cauhinh-counter {
+  margin-top: 6px;
+  text-align: right;
+  color: #aaa1b2;
+  font-size: 10px;
+}
+
+/* ==========================================
+   UPLOAD
+========================================== */
+
+.cauhinh-upload-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.cauhinh-upload-item {
+  padding: 18px;
+  border: 1px dashed #dcd3e5;
+  border-radius: 11px;
+  background: #fcfbfd;
+  min-width: 0;
+}
+
+.cauhinh-upload-label strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #46394f;
+}
+
+.cauhinh-upload-label span {
+  font-size: 11px;
+  color: #a098aa;
+  line-height: 1.5;
+}
+
+.cauhinh-image-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 17px 0;
+  border: 1px solid #ece7f1;
+  border-radius: 9px;
+  background: white;
+  overflow: hidden;
+}
+
+.logo-preview {
+  width: 100%;
+  height: 140px;
+}
+
+.favicon-preview {
+  width: 100%;
+  height: 140px;
+}
+
+.cauhinh-image-preview img {
+  max-width: 85%;
+  max-height: 110px;
+  object-fit: contain;
+}
+
+.favicon-preview img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.cauhinh-image-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  color: #b7a9c2;
+}
+
+.cauhinh-image-empty span {
+  font-size: 11px;
+}
+
+.cauhinh-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #6b2d8a;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cauhinh-upload-btn:hover {
+  background: #873c9e;
+  box-shadow: 0 4px 12px rgba(107, 45, 138, 0.2);
+}
+
+.cauhinh-upload-item>small {
+  display: block;
+  margin-top: 10px;
+  color: #aaa1b2;
+  font-size: 10px;
+}
+
+
+/* ==========================================
+   BANNER TRANG CHỦ
+========================================== */
+
+.cauhinh-banner-upload {
+  width: 100%;
+  padding: 18px;
+  border: 1px dashed #d9c9e3;
+  border-radius: 11px;
+  background: #fcfafd;
+}
+
+.cauhinh-banner-preview {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 17px 0;
+  overflow: hidden;
+  border: 1px solid #e9e2ee;
+  border-radius: 10px;
+  background: #f8f5fa;
+}
+
+.cauhinh-banner-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cauhinh-banner-upload>small {
+  display: block;
+  margin-top: 10px;
+  color: #aaa1b2;
+  font-size: 10px;
+}
+
+.cauhinh-banner-fields {
+  margin-top: 25px;
+}
+
+.cauhinh-banner-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px;
+  margin-top: 25px;
+  border: 1px solid #eee6f2;
+  border-radius: 10px;
+  background: #faf7fc;
+}
+
+.cauhinh-banner-toggle strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #493653;
+  font-size: 13px;
+}
+
+.cauhinh-banner-toggle p {
+  margin: 0;
+  color: #96899e;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Công tắc bật tắt */
+
+.cauhinh-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.cauhinh-switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.cauhinh-switch-slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  border-radius: 30px;
+  background: #c9c3d0;
+  transition: 0.25s;
+}
+
+.cauhinh-switch-slider::before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 3px;
+  border-radius: 50%;
+  background: white;
+  transition: 0.25s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.cauhinh-switch input:checked+.cauhinh-switch-slider {
+  background: #7c3995;
+}
+
+.cauhinh-switch input:checked+.cauhinh-switch-slider::before {
+  transform: translateX(22px);
+}
+
+.cauhinh-switch input:focus-visible+.cauhinh-switch-slider {
+  outline: 3px solid rgba(124, 57, 149, 0.2);
+}
+
+.cauhinh-upload-btn.disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .cauhinh-banner-preview {
+    height: 180px;
+  }
+
+  .cauhinh-banner-toggle {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .cauhinh-banner-preview {
+    height: 145px;
+  }
+
+  .cauhinh-banner-toggle {
+    gap: 10px;
+    padding: 13px;
+  }
+}
+
+/* ==========================================
+   MẠNG XÃ HỘI
+========================================== */
+
+.cauhinh-social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+.cauhinh-social-item {
+  display: grid;
+  grid-template-columns: 35px minmax(0, 1fr);
+  align-items: start;
+  gap: 13px;
+}
+
+.cauhinh-social-item>svg {
+  margin-top: 32px;
+}
+
+.cauhinh-social-item.facebook>svg {
+  color: #1877f2;
+}
+
+.cauhinh-social-item.zalo>svg {
+  color: #1684e8;
+}
+
+.cauhinh-social-item.youtube>svg {
+  color: #e53935;
+}
+
+.cauhinh-social-item.instagram>svg {
+  color: #c0449a;
+}
+
+.cauhinh-social-item.tiktok>svg {
+  color: #24202a;
+}
+
+/* ==========================================
+   SUBTITLE
+========================================== */
+
+.cauhinh-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 17px;
+  margin-bottom: 21px;
+  border-bottom: 1px solid #f0ecf3;
+  color: #624276;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* ==========================================
+   INFO BOX
+========================================== */
+
+.cauhinh-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+  border-radius: 9px;
+  background: #f3eff9;
+  color: #76518d;
+}
+
+.cauhinh-info-box svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cauhinh-info-box p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   SAVE BAR
+========================================== */
+
+.cauhinh-save-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 17px 20px;
+  margin-top: 20px;
+  border: 1px solid #ebe6f0;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(46, 28, 66, 0.035);
+}
+
+.cauhinh-save-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #8f8799;
+  font-size: 11px;
+}
+
+.cauhinh-save-note svg {
+  color: #31a576;
+}
+
+.cauhinh-save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 155px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(110deg, #8a3188, #d84c50, #e85d2a);
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cauhinh-save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(190, 63, 84, 0.22);
+}
+
+.cauhinh-save-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.cauhinh-loading {
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #76518d;
+}
+
+.cauhinh-loading p {
+  font-size: 13px;
+  color: #91869c;
+}
+
+.spin {
+  animation: cauhinhSpin 1s linear infinite;
+}
+
+@keyframes cauhinhSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1100px) {
+  .cauhinh-layout {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+
+  .cauhinh-card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cauhinh-page {
+    padding: 15px;
+  }
+
+  .cauhinh-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cauhinh-tabs {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .cauhinh-tabs-title,
+  .cauhinh-tabs-note {
+    display: none;
+  }
+
+  .cauhinh-tab {
+    width: auto;
+    margin: 0;
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .cauhinh-tab span {
+    display: none;
+  }
+
+  .cauhinh-tab svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cauhinh-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cauhinh-upload-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cauhinh-header h1 {
+    font-size: 20px;
+  }
+
+  .cauhinh-save-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cauhinh-save-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cauhinh-header {
+    align-items: flex-start;
+  }
+
+  .cauhinh-header-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .cauhinh-header p {
+    font-size: 11px;
+  }
+
+  .cauhinh-refresh-btn {
+    padding: 9px;
+    font-size: 0;
+  }
+
+  .cauhinh-card {
+    padding: 14px;
+  }
+
+  .cauhinh-section-heading h2 {
+    font-size: 15px;
+  }
+}

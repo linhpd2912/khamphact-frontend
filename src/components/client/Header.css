@@ -1,0 +1,338 @@
+/* =====================================
+   HEADER - CỐ ĐỊNH TRÊN ĐẦU TRANG
+===================================== */
+
+.client-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+  height: 80px;
+
+  background: rgba(255, 246, 239, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(112, 36, 119, 0.12);
+  box-shadow: 0 4px 22px rgba(63, 29, 90, 0.08);
+}
+
+.client-header-container {
+  width: min(calc(100% - 48px), 1440px);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+}
+
+/* =====================================
+   LOGO VÀ THƯƠNG HIỆU
+===================================== */
+
+.client-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.client-brand-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, #ff8a00, #ed2939, #702477);
+
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 3px 12px rgba(103, 32, 95, 0.15);
+}
+
+.client-brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.client-brand-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.client-brand-name {
+  font-size: 25px;
+  font-weight: 800;
+  color: #67205f;
+  letter-spacing: -0.6px;
+}
+
+.client-brand-slogan {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: #8b526f;
+  margin-top: 5px;
+}
+
+/* =====================================
+   MENU ĐIỀU HƯỚNG
+===================================== */
+
+.client-navigation {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 100%;
+}
+
+.client-nav-link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  color: #39283c;
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  white-space: nowrap;
+  transition: 0.25s;
+}
+
+.client-nav-link:hover,
+.client-nav-link.active {
+  color: #e84b25;
+}
+
+.client-nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 13px;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #ff7a00, #ed2939, #702477);
+}
+
+/* =====================================
+   CÁC NÚT CHỨC NĂNG
+===================================== */
+
+.client-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.client-search-button,
+.client-location-button {
+  height: 42px;
+
+  border: 1px solid rgba(112, 36, 119, 0.12);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #67205f;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.client-search-button {
+  width: 42px;
+}
+
+.client-location-button {
+  padding: 0 15px;
+  gap: 7px;
+
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.client-search-button:hover,
+.client-location-button:hover {
+  border-color: #e85d2a;
+  background: #fff0e8;
+  color: #e85d2a;
+}
+
+.client-header-cta,
+.client-mobile-cta {
+  min-height: 43px;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+
+  border-radius: 30px;
+  background: linear-gradient(110deg, #ff8a00, #ed3d25, #702477);
+
+  transition: 0.25s;
+}
+
+.client-header-cta:hover,
+.client-mobile-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(180, 49, 72, 0.22);
+}
+
+/* =====================================
+   MENU MOBILE
+===================================== */
+
+.client-mobile-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: #67205f;
+  cursor: pointer;
+}
+
+.client-mobile-menu {
+  display: none;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 1200px) {
+  .client-header-container {
+    width: calc(100% - 32px);
+    gap: 16px;
+  }
+
+  .client-navigation {
+    gap: 15px;
+  }
+
+  .client-nav-link {
+    font-size: 13px;
+  }
+
+  .client-brand-name {
+    font-size: 21px;
+  }
+
+  .client-header-actions {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 950px) {
+  .client-navigation,
+  .client-header-actions {
+    display: none;
+  }
+
+  .client-mobile-toggle {
+    display: block;
+  }
+
+  .client-mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    padding: 14px 22px 22px;
+
+    background: rgba(255, 246, 239, 0.98);
+    backdrop-filter: blur(15px);
+
+    border-top: 1px solid rgba(112, 36, 119, 0.1);
+    box-shadow: 0 12px 25px rgba(40, 20, 40, 0.12);
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+
+    transition: 0.25s;
+  }
+
+  .client-mobile-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .client-mobile-link {
+    padding: 13px 12px;
+    text-decoration: none;
+
+    color: #39283c;
+    font-size: 15px;
+    font-weight: 700;
+
+    border-radius: 9px;
+  }
+
+  .client-mobile-link.active,
+  .client-mobile-link:hover {
+    color: #e84b25;
+    background: #fff0e8;
+  }
+
+  .client-mobile-cta {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-header {
+    height: 68px;
+  }
+
+  .client-header-container {
+    width: calc(100% - 28px);
+  }
+
+  .client-brand-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .client-brand-name {
+    font-size: 19px;
+  }
+
+  .client-brand-slogan {
+    font-size: 8px;
+  }
+}

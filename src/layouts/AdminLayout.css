@@ -1,0 +1,73 @@
+/* Khung tổng thể */
+.admin-layout {
+  --sidebar-width: 270px;
+
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Khu vực bên phải Sidebar */
+.admin-main {
+  min-height: 100vh;
+  width: calc(100% - var(--sidebar-width));
+  margin-left: var(--sidebar-width);
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+/* Khu vực nội dung chính */
+.admin-content {
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 28px 30px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* Chân trang */
+.admin-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  padding: 18px 30px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+/* Lớp phủ khi mở Sidebar trên điện thoại */
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .admin-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .admin-content {
+    padding: 22px 18px;
+  }
+
+  .admin-footer {
+    padding: 16px 18px;
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 25;
+    border: 0;
+    background: rgb(0 0 0 / 45%);
+  }
+}

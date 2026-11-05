@@ -1,0 +1,288 @@
+/* Lớp phủ modal */
+
+.them-phuong-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgb(21 29 34 / 55%);
+  backdrop-filter: blur(3px);
+}
+
+/* Hộp modal */
+
+.them-phuong-modal {
+  width: 100%;
+  max-width: 540px;
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ece5f0;
+  border-radius: 17px;
+  box-shadow: 0 24px 75px rgb(0 0 0 / 20%);
+  animation: them-phuong-appear 0.2s ease;
+}
+
+@keyframes them-phuong-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+
+.them-phuong-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 22px 24px;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.them-phuong-header-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #6b2d8a;
+  background: #f2eafa;
+  border-radius: 12px;
+}
+
+.them-phuong-header-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.them-phuong-header-text h2 {
+  margin: 0 0 5px;
+  color: #263238;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.them-phuong-header-text p {
+  margin: 0;
+  color: #859198;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.them-phuong-close {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #75838a;
+  background: #f4f6f7;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.them-phuong-close:hover {
+  color: #c44747;
+  background: #fff0f0;
+}
+
+.them-phuong-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Nội dung form */
+
+.them-phuong-body {
+  padding: 22px 24px;
+  overflow-y: auto;
+}
+
+.them-phuong-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 19px;
+}
+
+.them-phuong-field:last-child {
+  margin-bottom: 0;
+}
+
+.them-phuong-field label {
+  color: #394950;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.them-phuong-field label span {
+  color: #d94343;
+}
+
+.them-phuong-field input,
+.them-phuong-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: #34434a;
+  background: #fff;
+  border: 1px solid #dfe6e9;
+  border-radius: 9px;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.them-phuong-field input::placeholder {
+  color: #a4afb4;
+}
+
+.them-phuong-field input:focus,
+.them-phuong-field select:focus {
+  border-color: #9470ac;
+  box-shadow: 0 0 0 3px rgb(107 45 138 / 8%);
+}
+
+.them-phuong-field input:disabled,
+.them-phuong-field select:disabled {
+  background: #f4f6f7;
+  cursor: not-allowed;
+}
+
+.them-phuong-field small {
+  color: #8b989e;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.them-phuong-field .them-phuong-help-error {
+  color: #c44747;
+}
+
+/* Thông báo lỗi */
+
+.them-phuong-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 19px;
+  padding: 12px;
+  color: #b33d3d;
+  background: #fff0f0;
+  border: 1px solid #f2d5d5;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.them-phuong-error svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.them-phuong-error span {
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+.them-phuong-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 17px 24px;
+  background: #fafbfc;
+  border-top: 1px solid #edf0f2;
+}
+
+.them-phuong-btn-cancel,
+.them-phuong-btn-save {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.them-phuong-btn-cancel {
+  color: #5d6b72;
+  background: #fff;
+  border: 1px solid #dce3e6;
+}
+
+.them-phuong-btn-cancel:hover:not(:disabled) {
+  background: #f0f3f4;
+}
+
+.them-phuong-btn-save {
+  color: #fff;
+  background: #e85d2a;
+  border: 1px solid #e85d2a;
+}
+
+.them-phuong-btn-save:hover:not(:disabled) {
+  background: #cf481b;
+}
+
+.them-phuong-btn-cancel:disabled,
+.them-phuong-btn-save:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+  .them-phuong-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .them-phuong-modal {
+    max-height: calc(100vh - 24px);
+    margin: auto 0;
+  }
+
+  .them-phuong-header {
+    padding: 17px;
+  }
+
+  .them-phuong-body {
+    padding: 18px 17px;
+  }
+
+  .them-phuong-footer {
+    padding: 14px 17px;
+  }
+
+  .them-phuong-btn-cancel,
+  .them-phuong-btn-save {
+    flex: 1;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,747 @@
+/* ================================
+   OVERLAY VÀ MODAL
+================================ */
+
+.gio-mo-cua-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(25, 18, 34, 0.58);
+  backdrop-filter: blur(4px);
+}
+
+.gio-mo-cua-modal {
+  width: min(100%, 850px);
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #eee5f4;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(36, 16, 47, 0.25);
+  animation: gioMoCuaAppear 0.2s ease-out;
+}
+
+@keyframes gioMoCuaAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.gio-mo-cua-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 26px;
+  color: #fff;
+  background: linear-gradient(115deg, #6b2d8a, #8d286b, #b22222);
+}
+
+.gio-mo-cua-header-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.gio-mo-cua-header-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.gio-mo-cua-header-content h2 {
+  margin: 0 0 5px;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.gio-mo-cua-header-content p {
+  margin: 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gio-mo-cua-icon-button {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.gio-mo-cua-header .gio-mo-cua-icon-button:hover {
+  background: rgba(255, 255, 255, 0.17);
+}
+
+/* ================================
+   BODY
+================================ */
+
+.gio-mo-cua-body {
+  padding: 22px 26px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.gio-mo-cua-summary {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 18px;
+  padding: 15px 16px;
+  border: 1px solid #eee5f4;
+  border-radius: 14px;
+  background: #fbf8fd;
+}
+
+.gio-mo-cua-summary-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #6b2d8a;
+  background: #efe4f7;
+}
+
+.gio-mo-cua-summary > div:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+
+.gio-mo-cua-summary strong {
+  display: block;
+  color: #352341;
+  font-size: 14px;
+}
+
+.gio-mo-cua-summary p {
+  margin: 5px 0 0;
+  color: #827589;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.gio-mo-cua-refresh {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e4d6ed;
+  border-radius: 10px;
+  color: #6b2d8a;
+  background: #fff;
+  cursor: pointer;
+}
+
+.gio-mo-cua-refresh:hover {
+  background: #f2e9f8;
+}
+
+.gio-mo-cua-refresh:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.gio-mo-cua-spin {
+  animation: gioMoCuaSpin 0.8s linear infinite;
+}
+
+@keyframes gioMoCuaSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================================
+   THÔNG BÁO
+================================ */
+
+.gio-mo-cua-alert {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.gio-mo-cua-alert-error {
+  border-color: #f5c6c6;
+  color: #a51f2b;
+  background: #fff0f0;
+}
+
+.gio-mo-cua-alert-success {
+  border-color: #b9e8cd;
+  color: #187647;
+  background: #edfff4;
+}
+
+/* ================================
+   TRẠNG THÁI ĐANG TẢI
+================================ */
+
+.gio-mo-cua-loading {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #81748a;
+}
+
+.gio-mo-cua-loading p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.gio-mo-cua-loader {
+  width: 34px;
+  height: 34px;
+  border: 3px solid #eadff1;
+  border-top-color: #6b2d8a;
+  border-radius: 50%;
+  animation: gioMoCuaSpin 0.8s linear infinite;
+}
+
+/* ================================
+   DANH SÁCH NGÀY
+================================ */
+
+.gio-mo-cua-days {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gio-mo-cua-day {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 15px;
+  border: 1px solid #eee8f2;
+  border-radius: 14px;
+  background: #fff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gio-mo-cua-day:hover {
+  border-color: #d8c2e6;
+  box-shadow: 0 5px 18px rgba(74, 35, 94, 0.06);
+  transform: translateY(-1px);
+}
+
+.gio-mo-cua-day-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.gio-mo-cua-day-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #30223a;
+  font-size: 14px;
+}
+
+.gio-mo-cua-day-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #b7aabe;
+}
+
+.gio-mo-cua-day.is-open .gio-mo-cua-day-dot {
+  background: #20a66a;
+}
+
+.gio-mo-cua-day.is-closed .gio-mo-cua-day-dot {
+  background: #e05b58;
+}
+
+.gio-mo-cua-day-time {
+  margin-top: 11px;
+  color: #493357;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.gio-mo-cua-day.is-closed .gio-mo-cua-day-time {
+  color: #c23c40;
+}
+
+.gio-mo-cua-day.is-empty .gio-mo-cua-day-time {
+  color: #93889b;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.gio-mo-cua-status {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 9px;
+  padding: 5px 8px;
+  border-radius: 7px;
+  color: #74667d;
+  background: #f1edf4;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.gio-mo-cua-day.is-open .gio-mo-cua-status {
+  color: #17764b;
+  background: #e7f8ee;
+}
+
+.gio-mo-cua-day.is-closed .gio-mo-cua-status {
+  color: #b52d35;
+  background: #fff0f0;
+}
+
+.gio-mo-cua-note {
+  margin: 9px 0 0;
+  color: #83768b;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* ================================
+   NÚT THAO TÁC TRÊN TỪNG NGÀY
+================================ */
+
+.gio-mo-cua-day-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gio-mo-cua-day-actions button {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.gio-mo-cua-day-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.gio-mo-cua-action-edit {
+  border-color: #e6d8f0 !important;
+  color: #6b2d8a;
+  background: #f7f0fb;
+}
+
+.gio-mo-cua-action-edit:hover {
+  background: #eddef6;
+}
+
+.gio-mo-cua-action-delete {
+  width: 34px;
+  padding: 0 !important;
+  border-color: #f1d8d8 !important;
+  color: #c13b42;
+  background: #fff6f6;
+}
+
+.gio-mo-cua-action-delete:hover {
+  background: #ffe8e8;
+}
+
+.gio-mo-cua-action-add {
+  border-color: #e1d1ee !important;
+  color: #6b2d8a;
+  background: #f6effb;
+}
+
+.gio-mo-cua-action-add:hover {
+  background: #ecdef5;
+}
+
+/* ================================
+   FORM THÊM / SỬA
+================================ */
+
+.gio-mo-cua-form-wrap {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid #e9d9f1;
+  border-radius: 16px;
+  background: #fdfbfe;
+}
+
+.gio-mo-cua-form-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.gio-mo-cua-form-heading h3 {
+  margin: 0;
+  color: #3b2449;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.gio-mo-cua-form-heading p {
+  margin: 6px 0 0;
+  color: #887a90;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.gio-mo-cua-form-heading .gio-mo-cua-icon-button {
+  color: #766581;
+  background: #f2ebf6;
+}
+
+.gio-mo-cua-form-heading .gio-mo-cua-icon-button:hover {
+  background: #e8dcef;
+}
+
+.gio-mo-cua-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.gio-mo-cua-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.gio-mo-cua-field > span {
+  color: #4b3858;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gio-mo-cua-field input,
+.gio-mo-cua-field select,
+.gio-mo-cua-field textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid #e2d6e9;
+  border-radius: 9px;
+  outline: none;
+  color: #35233f;
+  background: #fff;
+  font: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.gio-mo-cua-field input,
+.gio-mo-cua-field select {
+  min-height: 42px;
+}
+
+.gio-mo-cua-field textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.gio-mo-cua-field input:focus,
+.gio-mo-cua-field select:focus,
+.gio-mo-cua-field textarea:focus {
+  border-color: #8b55a7;
+  box-shadow: 0 0 0 3px rgba(107, 45, 138, 0.1);
+}
+
+.gio-mo-cua-field input:disabled {
+  color: #a49aaa;
+  background: #f0edf2;
+  cursor: not-allowed;
+}
+
+.gio-mo-cua-field textarea::placeholder {
+  color: #b1a5b9;
+}
+
+.gio-mo-cua-char-count {
+  align-self: flex-end;
+  color: #8c7f95;
+  font-size: 11px;
+}
+
+/* ================================
+   TÙY CHỌN NGHỈ CẢ NGÀY
+================================ */
+
+.gio-mo-cua-closed-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin: 0 0 20px;
+  padding: 13px;
+  border: 1px solid #f1dada;
+  border-radius: 11px;
+  background: #fff7f7;
+  cursor: pointer;
+}
+
+.gio-mo-cua-closed-option input {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin: 2px 0 0;
+  accent-color: #b22222;
+  cursor: pointer;
+}
+
+.gio-mo-cua-closed-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gio-mo-cua-closed-option strong {
+  color: #9e2a31;
+  font-size: 13px;
+}
+
+.gio-mo-cua-closed-option small {
+  color: #917d83;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ================================
+   CHÂN FORM
+================================ */
+
+.gio-mo-cua-form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid #eee5f3;
+}
+
+.gio-mo-cua-form-footer button {
+  min-height: 40px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gio-mo-cua-form-footer button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.gio-mo-cua-form-footer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.gio-mo-cua-btn-cancel {
+  border: 1px solid #e5dce9;
+  color: #6c5b77;
+  background: #fff;
+}
+
+.gio-mo-cua-btn-cancel:hover:not(:disabled) {
+  background: #f6f0f9;
+}
+
+.gio-mo-cua-btn-save {
+  border: 1px solid #6b2d8a;
+  color: #fff;
+  background: linear-gradient(100deg, #6b2d8a, #8d286b);
+}
+
+.gio-mo-cua-btn-save:hover:not(:disabled) {
+  background: linear-gradient(100deg, #57216f, #762055);
+}
+
+/* ================================
+   FOOTER MODAL
+================================ */
+
+.gio-mo-cua-footer {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 26px;
+  border-top: 1px solid #f0e9f3;
+  background: #fff;
+}
+
+.gio-mo-cua-footer > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #83758d;
+  font-size: 11px;
+}
+
+.gio-mo-cua-footer-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #20a66a;
+}
+
+.gio-mo-cua-footer > button {
+  padding: 9px 16px;
+  border: 1px solid #e5d9ed;
+  border-radius: 9px;
+  color: #6b2d8a;
+  background: #f8f2fc;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gio-mo-cua-footer > button:hover:not(:disabled) {
+  background: #eee1f6;
+}
+
+.gio-mo-cua-footer > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 680px) {
+  .gio-mo-cua-overlay {
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .gio-mo-cua-modal {
+    max-height: calc(100vh - 20px);
+    border-radius: 15px;
+  }
+
+  .gio-mo-cua-header {
+    padding: 17px;
+  }
+
+  .gio-mo-cua-header-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .gio-mo-cua-header-content h2 {
+    font-size: 18px;
+  }
+
+  .gio-mo-cua-body {
+    padding: 16px;
+  }
+
+  .gio-mo-cua-days {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gio-mo-cua-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .gio-mo-cua-form-wrap {
+    padding: 15px;
+  }
+
+  .gio-mo-cua-footer {
+    padding: 12px 16px;
+  }
+
+  .gio-mo-cua-footer > span {
+    max-width: 65%;
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gio-mo-cua-modal,
+  .gio-mo-cua-spin,
+  .gio-mo-cua-loader {
+    animation: none;
+  }
+
+  .gio-mo-cua-day,
+  .gio-mo-cua-day-actions button,
+  .gio-mo-cua-form-footer button {
+    transition: none;
+  }
+}

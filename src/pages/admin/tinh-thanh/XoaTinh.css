@@ -1,0 +1,273 @@
+/* Lớp phủ */
+
+.xoa-tinh-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgb(19 32 35 / 58%);
+  backdrop-filter: blur(3px);
+}
+
+/* Modal xác nhận */
+
+.xoa-tinh-modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #f0e3e0;
+  border-radius: 18px;
+  box-shadow: 0 25px 80px rgb(0 0 0 / 20%);
+  animation: xoa-tinh-appear 0.2s ease;
+}
+
+@keyframes xoa-tinh-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+
+.xoa-tinh-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 13px 13px 0;
+}
+
+.xoa-tinh-close {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #84918f;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.xoa-tinh-close:hover:not(:disabled) {
+  color: #bd554d;
+  background: #fff0ee;
+}
+
+.xoa-tinh-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Nội dung */
+
+.xoa-tinh-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px 27px 25px;
+  text-align: center;
+}
+
+.xoa-tinh-warning-icon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  margin-bottom: 19px;
+  color: #cb655a;
+  background: #fff0ed;
+  border: 1px solid #ffded9;
+  border-radius: 50%;
+}
+
+.xoa-tinh-body h2 {
+  margin: 0;
+  color: #293f41;
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.xoa-tinh-body > p {
+  margin: 11px 0 21px;
+  color: #7c8b89;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Thông tin tỉnh thành sắp xóa */
+
+.xoa-tinh-info {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  background: #faf8f8;
+  border: 1px solid #f0e5e3;
+  border-radius: 12px;
+}
+
+.xoa-tinh-info-icon {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  color: #c65f55;
+  background: #fff0ed;
+  border-radius: 11px;
+}
+
+.xoa-tinh-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.xoa-tinh-info-content strong {
+  color: #35494a;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.xoa-tinh-info-content span {
+  color: #869390;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+/* Cảnh báo ràng buộc */
+
+.xoa-tinh-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  color: #8b682a;
+  background: #fff8e9;
+  border: 1px solid #f5e8c6;
+  border-radius: 9px;
+  text-align: left;
+}
+
+.xoa-tinh-notice svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.xoa-tinh-notice span {
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* Lỗi khi xóa */
+
+.xoa-tinh-error {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  color: #ad4c45;
+  background: #fff2f0;
+  border: 1px solid #f4d8d4;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+.xoa-tinh-footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 17px 24px;
+  background: #fafcfb;
+  border-top: 1px solid #edf1ef;
+}
+
+.xoa-tinh-footer button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 41px;
+  padding: 10px 15px;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.xoa-tinh-footer button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.xoa-tinh-btn-cancel {
+  color: #627572;
+  background: #fff;
+  border: 1px solid #dce5e2;
+}
+
+.xoa-tinh-btn-cancel:hover:not(:disabled) {
+  background: #f2f6f4;
+}
+
+.xoa-tinh-btn-confirm {
+  color: #fff;
+  background: #c65f55;
+  border: 1px solid #c65f55;
+}
+
+.xoa-tinh-btn-confirm:hover:not(:disabled) {
+  background: #ad4c45;
+  border-color: #ad4c45;
+}
+
+/* Điện thoại */
+
+@media (max-width: 500px) {
+  .xoa-tinh-overlay {
+    padding: 12px;
+  }
+
+  .xoa-tinh-modal {
+    border-radius: 14px;
+  }
+
+  .xoa-tinh-body {
+    padding: 5px 18px 20px;
+  }
+
+  .xoa-tinh-body h2 {
+    font-size: 17px;
+  }
+
+  .xoa-tinh-footer {
+    padding: 14px;
+  }
+
+  .xoa-tinh-footer button {
+    flex: 1;
+  }
+}

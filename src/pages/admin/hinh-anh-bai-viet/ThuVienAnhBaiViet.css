@@ -1,0 +1,444 @@
+/* =========================================
+   THƯ VIỆN ẢNH BÀI VIẾT
+========================================= */
+
+.qlbv-thuvien {
+  width: 100%;
+  margin-top: 12px;
+  padding: 20px;
+  border: 1px solid #e8e1ef;
+  border-radius: 12px;
+  background: #fff;
+  position: relative;
+}
+
+/* Header */
+
+.qlbv-thuvien-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.qlbv-thuvien-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 6px;
+  color: #51246b;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.qlbv-thuvien-header p {
+  margin: 0;
+  color: #88808f;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.qlbv-thuvien-count {
+  flex-shrink: 0;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: #f3eaf8;
+  color: #6b2d8a;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* Khu vực chọn ảnh */
+
+.qlbv-thuvien-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 27px 15px;
+  border: 1.5px dashed #c9b5d8;
+  border-radius: 10px;
+  background: #fcfaff;
+  text-align: center;
+}
+
+.qlbv-thuvien-upload-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  background: #f0e6f7;
+  color: #713c91;
+}
+
+.qlbv-thuvien-upload h4 {
+  margin: 0 0 7px;
+  color: #403548;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.qlbv-thuvien-upload p {
+  margin: 0 0 15px;
+  color: #918997;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.qlbv-thuvien-select-btn,
+.qlbv-thuvien-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 7px;
+  background: #6b2d8a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.qlbv-thuvien-select-btn:hover,
+.qlbv-thuvien-upload-btn:hover {
+  background: #51216d;
+  transform: translateY(-1px);
+}
+
+.qlbv-thuvien-select-btn:disabled,
+.qlbv-thuvien-upload-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Khu vực preview */
+
+.qlbv-thuvien-preview {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #eee6f3;
+  border-radius: 9px;
+  background: #fdfbff;
+}
+
+.qlbv-thuvien-preview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+
+.qlbv-thuvien-preview-heading strong {
+  color: #51405e;
+  font-size: 13px;
+}
+
+.qlbv-thuvien-preview-heading button {
+  border: none;
+  background: transparent;
+  color: #c33c45;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.qlbv-thuvien-preview-heading button:hover {
+  text-decoration: underline;
+}
+
+/* Tiêu đề gallery */
+
+.qlbv-thuvien-gallery-heading {
+  margin: 23px 0 13px;
+}
+
+.qlbv-thuvien-gallery-heading h4 {
+  margin: 0;
+  color: #403548;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Lưới ảnh */
+
+.qlbv-thuvien-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.qlbv-thuvien-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e9e3ee;
+  border-radius: 9px;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.qlbv-thuvien-card:hover {
+  border-color: #b99bc9;
+  box-shadow: 0 4px 13px rgba(76, 39, 96, 0.08);
+}
+
+.qlbv-thuvien-card.is-featured {
+  border: 2px solid #6b2d8a;
+}
+
+/* Ảnh */
+
+.qlbv-thuvien-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f4f0f6;
+}
+
+.qlbv-thuvien-image img,
+.qlbv-thuvien-card-preview > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qlbv-thuvien-featured-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: #6b2d8a;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+/* Tên file preview */
+
+.qlbv-thuvien-card-preview {
+  position: relative;
+}
+
+.qlbv-thuvien-card-preview > img {
+  aspect-ratio: 4 / 3;
+}
+
+.qlbv-thuvien-file-name {
+  overflow: hidden;
+  padding: 7px 8px;
+  color: #716879;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qlbv-thuvien-remove-preview {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(40, 30, 45, 0.75);
+  color: #fff;
+  cursor: pointer;
+}
+
+.qlbv-thuvien-remove-preview:hover {
+  background: #c83d48;
+}
+
+/* Nút thao tác ảnh */
+
+.qlbv-thuvien-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+}
+
+.qlbv-thuvien-card-actions button {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 7px;
+  border: 1px solid #e8e1ed;
+  border-radius: 5px;
+  background: #fff;
+  color: #665b70;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.qlbv-thuvien-card-actions button:first-child {
+  flex: 1;
+}
+
+.qlbv-thuvien-card-actions button:hover:not(:disabled) {
+  border-color: #6b2d8a;
+  color: #6b2d8a;
+  background: #f8f2fb;
+}
+
+.qlbv-thuvien-card-actions button.active {
+  border-color: #6b2d8a;
+  background: #f2e8f8;
+  color: #6b2d8a;
+}
+
+.qlbv-thuvien-card-actions button.delete {
+  width: 30px;
+  flex-shrink: 0;
+  padding: 6px;
+  color: #c4474e;
+}
+
+.qlbv-thuvien-card-actions button.delete:hover:not(:disabled) {
+  border-color: #c4474e;
+  background: #fff1f1;
+}
+
+.qlbv-thuvien-card-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Thông tin ảnh */
+
+.qlbv-thuvien-image-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 9px 9px;
+  color: #938b99;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+/* Trạng thái rỗng */
+
+.qlbv-thuvien-empty {
+  min-height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px dashed #e5dce9;
+  border-radius: 9px;
+  background: #fcfbfd;
+  color: #aaa1b0;
+  font-size: 13px;
+}
+
+/* Nút upload */
+
+.qlbv-thuvien-upload-btn {
+  margin-top: 15px;
+}
+
+/* Toast */
+
+.qlbv-thuvien-toast {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-width: 360px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.13);
+  color: #fff;
+  font-size: 13px;
+  animation: qlbv-toast-in 0.25s ease;
+}
+
+.qlbv-thuvien-toast.success {
+  background: #26865c;
+}
+
+.qlbv-thuvien-toast.error {
+  background: #c4474e;
+}
+
+@keyframes qlbv-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading animation */
+
+.qlbv-spin {
+  animation: qlbv-spin 1s linear infinite;
+}
+
+@keyframes qlbv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .qlbv-thuvien-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .qlbv-thuvien {
+    padding: 14px;
+  }
+
+  .qlbv-thuvien-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .qlbv-thuvien-header {
+    flex-direction: column;
+  }
+
+  .qlbv-thuvien-card-actions button {
+    font-size: 9px;
+    padding: 6px 4px;
+  }
+}
+
+@media (max-width: 380px) {
+  .qlbv-thuvien-grid {
+    grid-template-columns: 1fr;
+  }
+}

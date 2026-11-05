@@ -1,0 +1,675 @@
+/* =====================================
+   MODAL TIỆN ÍCH CỦA QUÁN
+===================================== */
+
+.qati-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(29 19 38 / 52%);
+  backdrop-filter: blur(5px);
+  animation: qati-fade-in 0.18s ease;
+}
+
+.qati-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 650px;
+  max-height: min(760px, calc(100vh - 40px));
+  overflow: hidden;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 25px 80px rgb(25 15 35 / 25%);
+  animation: qati-modal-in 0.22s ease;
+  color: #30243a;
+  font-family: inherit;
+}
+
+.qati-modal *,
+.qati-modal *::before,
+.qati-modal *::after {
+  box-sizing: border-box;
+}
+
+.qati-modal button,
+.qati-modal input {
+  font: inherit;
+}
+
+.qati-modal button:focus-visible,
+.qati-modal input:focus-visible {
+  outline: 3px solid rgb(107 45 138 / 22%);
+  outline-offset: 2px;
+}
+
+/* Header */
+
+.qati-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px 27px 20px;
+  border-bottom: 1px solid #f0ecf3;
+}
+
+.qati-header-main {
+  min-width: 0;
+}
+
+.qati-eyebrow {
+  color: #8744a0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.qati-header h2 {
+  margin: 8px 0 0;
+  color: #30213c;
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -0.6px;
+}
+
+.qati-quan-name {
+  margin: 7px 0 0;
+  color: #928799;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.qati-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  border: none;
+  border-radius: 9px;
+  color: #877b91;
+  background: #f7f4f9;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.qati-close:hover {
+  color: #b83245;
+  background: #fff0f0;
+}
+
+/* Thống kê */
+
+.qati-summary {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding: 17px 27px;
+  border-bottom: 1px solid #f0ecf3;
+  background: #fdfbfe;
+}
+
+.qati-summary > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qati-summary strong {
+  color: #6b2d8a;
+  font-size: 23px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.qati-summary span {
+  color: #928799;
+  font-size: 11px;
+}
+
+/* Thanh công cụ */
+
+.qati-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 18px 27px 0;
+}
+
+.qati-tabs {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  border-bottom: 1px solid #ece7f0;
+}
+
+.qati-tabs > button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 39px;
+  padding: 0 0 11px;
+  border: none;
+  color: #928899;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.qati-tabs > button::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: transparent;
+  content: "";
+}
+
+.qati-tabs > button.active {
+  color: #6b2d8a;
+}
+
+.qati-tabs > button.active::after {
+  background: #6b2d8a;
+}
+
+.qati-tabs > button > span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 21px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 6px;
+  color: #8b7797;
+  background: #f2edf6;
+  font-size: 10px;
+}
+
+.qati-tabs > button.active > span {
+  color: #6b2d8a;
+  background: #eee1f6;
+}
+
+.qati-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 39px;
+  padding: 0 11px;
+  border: 1px solid #e9e3ee;
+  border-radius: 8px;
+  color: #96889e;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.qati-search:focus-within {
+  border-color: #a47bb8;
+}
+
+.qati-search input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  color: #382b42;
+  background: transparent;
+  font-size: 12px;
+}
+
+.qati-search input:focus-visible {
+  outline: none;
+}
+
+.qati-search input::placeholder {
+  color: #b0a6b8;
+}
+
+.qati-search > button {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  color: #928799;
+  background: transparent;
+  cursor: pointer;
+}
+
+.qati-search > button:hover {
+  color: #b83245;
+  background: #fff0f0;
+}
+
+/* Khu vực danh sách */
+
+.qati-content {
+  flex: 1;
+  min-height: 180px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 27px;
+}
+
+.qati-list {
+  width: 100%;
+}
+
+.qati-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 69px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f0edf3;
+  animation: qati-row-in 0.2s ease both;
+}
+
+.qati-row:last-child {
+  border-bottom: none;
+}
+
+.qati-row:hover .qati-item-icon {
+  color: #6b2d8a;
+  background: #eee1f6;
+}
+
+.qati-item-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: #80539a;
+  background: #f7f1fa;
+  transition: background 0.2s ease;
+}
+
+.qati-item-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.qati-item-info strong {
+  overflow: hidden;
+  color: #35283f;
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qati-item-info > span {
+  color: #a198a8;
+  font-size: 10px;
+}
+
+.qati-add,
+.qati-remove {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  min-width: 76px;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.qati-add {
+  border-color: #e8d8f1;
+  color: #783c97;
+  background: #faf5fd;
+}
+
+.qati-add:hover:not(:disabled) {
+  border-color: #c7a7db;
+  color: #57216f;
+  background: #f1e5f8;
+}
+
+.qati-remove {
+  border-color: #f1e7e7;
+  color: #aa7477;
+  background: #fff;
+}
+
+.qati-remove:hover:not(:disabled) {
+  border-color: #f0caca;
+  color: #b83245;
+  background: #fff3f3;
+}
+
+.qati-add:disabled,
+.qati-remove:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+/* Trạng thái rỗng / đang tải */
+
+.qati-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 210px;
+  color: #968a9e;
+  font-size: 12px;
+}
+
+.qati-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+.qati-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 13px;
+  border-radius: 50%;
+  color: #8a61a0;
+  background: #f5eef9;
+}
+
+.qati-empty h3 {
+  margin: 0;
+  color: #45374f;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.qati-empty p {
+  max-width: 290px;
+  margin: 8px 0 0;
+  color: #a098a7;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* Footer */
+
+.qati-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 27px;
+  border-top: 1px solid #eee9f2;
+  background: #fdfbfe;
+}
+
+.qati-footer > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #91869b;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.qati-footer > span svg {
+  flex-shrink: 0;
+  color: #16865b;
+}
+
+.qati-done {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 37px;
+  padding: 0 17px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background: #6b2d8a;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.qati-done:hover {
+  background: #4b1f63;
+}
+
+/* Thông báo */
+
+.qati-toast {
+  position: absolute;
+  right: 16px;
+  bottom: 72px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 12px 13px;
+  border: 1px solid #e9e2ed;
+  border-radius: 9px;
+  color: #55445f;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(35 22 44 / 13%);
+  font-size: 11px;
+  line-height: 1.6;
+  animation: qati-row-in 0.2s ease;
+}
+
+.qati-toast > svg {
+  flex-shrink: 0;
+}
+
+.qati-toast-success > svg {
+  color: #16865b;
+}
+
+.qati-toast-error > svg {
+  color: #c0394b;
+}
+
+.qati-toast > span {
+  overflow-wrap: anywhere;
+}
+
+.qati-toast > button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  color: #928799;
+  background: transparent;
+  cursor: pointer;
+}
+
+.qati-toast > button:hover {
+  background: #f5f0f8;
+}
+
+/* Animation */
+
+.qati-spin {
+  animation: qati-spin 1s linear infinite;
+}
+
+@keyframes qati-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes qati-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes qati-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes qati-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 560px) {
+  .qati-backdrop {
+    align-items: center;
+    padding: 10px;
+  }
+
+  .qati-modal {
+    max-height: calc(100dvh - 20px);
+    border-radius: 13px;
+  }
+
+  .qati-header {
+    padding: 19px 17px 16px;
+  }
+
+  .qati-header h2 {
+    font-size: 20px;
+  }
+
+  .qati-summary {
+    gap: 20px;
+    padding: 14px 17px;
+  }
+
+  .qati-summary > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .qati-summary strong {
+    font-size: 21px;
+  }
+
+  .qati-summary span {
+    font-size: 10px;
+  }
+
+  .qati-toolbar {
+    gap: 12px;
+    padding: 15px 17px 0;
+  }
+
+  .qati-tabs {
+    gap: 17px;
+  }
+
+  .qati-tabs > button {
+    gap: 5px;
+    font-size: 11px;
+  }
+
+  .qati-content {
+    padding: 0 17px;
+  }
+
+  .qati-row {
+    gap: 9px;
+    min-height: 64px;
+  }
+
+  .qati-item-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .qati-item-info strong {
+    font-size: 11px;
+  }
+
+  .qati-add,
+  .qati-remove {
+    min-width: 65px;
+    min-height: 31px;
+    gap: 4px;
+    padding: 0 7px;
+    font-size: 10px;
+  }
+
+  .qati-footer {
+    padding: 13px 17px;
+  }
+
+  .qati-footer > span {
+    max-width: 65%;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qati-modal *,
+  .qati-modal *::before,
+  .qati-modal *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

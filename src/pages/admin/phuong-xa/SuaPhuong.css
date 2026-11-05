@@ -1,0 +1,270 @@
+.sua-phuong-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgb(21 29 34 / 55%);
+  backdrop-filter: blur(3px);
+}
+
+.sua-phuong-modal {
+  width: 100%;
+  max-width: 540px;
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #ece5f0;
+  border-radius: 17px;
+  box-shadow: 0 24px 75px rgb(0 0 0 / 20%);
+  animation: sua-phuong-appear 0.2s ease;
+}
+
+@keyframes sua-phuong-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+
+.sua-phuong-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 22px 24px;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.sua-phuong-header-icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #6b2d8a;
+  background: #f2eafa;
+  border-radius: 12px;
+}
+
+.sua-phuong-header-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.sua-phuong-header-text h2 {
+  margin: 0 0 5px;
+  color: #263238;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.sua-phuong-header-text p {
+  margin: 0;
+  color: #859198;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.sua-phuong-close {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #75838a;
+  background: #f4f6f7;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.sua-phuong-close:hover {
+  color: #c44747;
+  background: #fff0f0;
+}
+
+.sua-phuong-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form */
+
+.sua-phuong-body {
+  padding: 22px 24px;
+  overflow-y: auto;
+}
+
+.sua-phuong-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 19px;
+}
+
+.sua-phuong-field:last-child {
+  margin-bottom: 0;
+}
+
+.sua-phuong-field label {
+  color: #394950;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sua-phuong-field label span {
+  color: #d94343;
+}
+
+.sua-phuong-field input,
+.sua-phuong-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: #34434a;
+  background: #fff;
+  border: 1px solid #dfe6e9;
+  border-radius: 9px;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sua-phuong-field input:focus,
+.sua-phuong-field select:focus {
+  border-color: #9470ac;
+  box-shadow: 0 0 0 3px rgb(107 45 138 / 8%);
+}
+
+.sua-phuong-field small {
+  color: #8b989e;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Lỗi */
+
+.sua-phuong-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 19px;
+  padding: 12px;
+  color: #b33d3d;
+  background: #fff0f0;
+  border: 1px solid #f2d5d5;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.sua-phuong-error svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sua-phuong-error span {
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+.sua-phuong-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 17px 24px;
+  background: #fafbfc;
+  border-top: 1px solid #edf0f2;
+}
+
+.sua-phuong-btn-cancel,
+.sua-phuong-btn-save {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sua-phuong-btn-cancel {
+  color: #5d6b72;
+  background: #fff;
+  border: 1px solid #dce3e6;
+}
+
+.sua-phuong-btn-cancel:hover:not(:disabled) {
+  background: #f0f3f4;
+}
+
+.sua-phuong-btn-save {
+  color: #fff;
+  background: #e85d2a;
+  border: 1px solid #e85d2a;
+}
+
+.sua-phuong-btn-save:hover:not(:disabled) {
+  background: #cf481b;
+}
+
+.sua-phuong-btn-cancel:disabled,
+.sua-phuong-btn-save:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+  .sua-phuong-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .sua-phuong-modal {
+    max-height: calc(100vh - 24px);
+    margin: auto 0;
+  }
+
+  .sua-phuong-header {
+    padding: 17px;
+  }
+
+  .sua-phuong-body {
+    padding: 18px 17px;
+  }
+
+  .sua-phuong-footer {
+    padding: 14px 17px;
+  }
+
+  .sua-phuong-btn-cancel,
+  .sua-phuong-btn-save {
+    flex: 1;
+    padding: 10px;
+  }
+}

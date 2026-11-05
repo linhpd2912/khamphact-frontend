@@ -1,0 +1,180 @@
+/* Khung trình soạn thảo */
+.tst-editor {
+  width: 100%;
+  border: 1px solid #ded8e8;
+  border-radius: 10px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tst-editor:focus-within {
+  border-color: #6b2d8a;
+  box-shadow: 0 0 0 3px rgba(107, 45, 138, 0.09);
+}
+
+/* Thanh công cụ */
+.tst-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 9px 10px;
+  background: #faf8fc;
+  border-bottom: 1px solid #e9e3ef;
+}
+
+.tst-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.tst-toolbar-divider {
+  width: 1px;
+  height: 23px;
+  background: #ded6e7;
+  margin: 0 5px;
+}
+
+/* Nút công cụ */
+.tst-toolbar-btn {
+  width: 33px;
+  height: 33px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #51465c;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tst-toolbar-btn:hover:not(:disabled) {
+  background: #eee5f5;
+  color: #6b2d8a;
+}
+
+.tst-toolbar-btn.active {
+  background: #6b2d8a;
+  color: #ffffff;
+}
+
+.tst-toolbar-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Vùng nhập nội dung */
+.tst-editor-content {
+  min-height: 320px;
+  padding: 18px 20px;
+}
+
+.tst-editor-content .tiptap {
+  min-height: 280px;
+  outline: none;
+  color: #33303a;
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Placeholder */
+.tst-editor-content .tiptap p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #aaa2b3;
+  pointer-events: none;
+  height: 0;
+}
+
+/* Tiêu đề */
+.tst-editor-content .tiptap h2 {
+  margin: 22px 0 12px;
+  color: #4b205f;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.tst-editor-content .tiptap h3 {
+  margin: 18px 0 10px;
+  color: #5d3474;
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+/* Đoạn văn */
+.tst-editor-content .tiptap p {
+  margin: 0 0 12px;
+}
+
+/* Danh sách */
+.tst-editor-content .tiptap ul,
+.tst-editor-content .tiptap ol {
+  padding-left: 25px;
+  margin: 10px 0 16px;
+}
+
+.tst-editor-content .tiptap li {
+  padding-left: 4px;
+  margin-bottom: 5px;
+}
+
+.tst-editor-content .tiptap li p {
+  margin-bottom: 4px;
+}
+
+/* Liên kết */
+.tst-editor-content .tiptap a {
+  color: #7b35a3;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Ảnh trong nội dung - chuẩn bị cho bước upload ảnh */
+.tst-editor-content .tiptap img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 16px auto;
+  border-radius: 8px;
+}
+
+/* Loading */
+.tst-loading {
+  padding: 30px;
+  text-align: center;
+  color: #777;
+  border: 1px solid #ded8e8;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tst-toolbar {
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .tst-toolbar-divider {
+    margin: 0 2px;
+  }
+
+  .tst-toolbar-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tst-editor-content {
+    padding: 14px;
+  }
+
+  .tst-editor-content .tiptap {
+    font-size: 14px;
+  }
+}
