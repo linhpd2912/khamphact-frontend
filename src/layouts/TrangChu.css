@@ -1008,7 +1008,7 @@ body,
     #fff9f4;
 }
 
-* Nội dung rộng hơn, giảm khoảng trống hai bên */
+/* Nội dung rộng hơn, giảm khoảng trống hai bên */
 .home-container {
   width: min(calc(100% - 80px), 1440px);
   max-width: none;
