@@ -30,7 +30,6 @@ import API from "../Api";
 
 const API_IMAGE_URL = API.BACKEND;
 
-
 const xuLyUrlAnh = (url) => {
   if (!url) return "";
 
@@ -314,30 +313,49 @@ function TrangChu() {
                 <span>Đang tải danh mục...</span>
               </div>
             ) : (
-              <div className="home-category-list">
-
-                {danhSachDanhMuc.map((danhMuc, index) => (
-                  <Link
-                    to={`/danh-muc?danhMuc=${encodeURIComponent(danhMuc.duongDanSeo)}`}
-                    key={danhMuc.id}
-                    className={`home-category-item category-color-${index % 8}`}
+              <div className="home-category-slider">
+                {danhSachDanhMuc.length > 4 && (
+                  <button
+                    type="button"
+                    className="home-category-nav home-category-nav-prev"
+                    onClick={() => cuonDanhMuc(-1)}
+                    aria-label="Danh mục trước"
                   >
-                    <div className="home-category-icon">
-                      {danhMuc.icon || "🍽️"}
-                    </div>
-
-                    <span className="home-category-name">
-                      {danhMuc.tenDanhMuc}
-                    </span>
-                  </Link>
-                ))}
-
-                {danhSachDanhMuc.length === 0 && (
-                  <div className="home-empty">
-                    Chưa có danh mục để hiển thị.
-                  </div>
+                    <ChevronLeft size={18} />
+                  </button>
                 )}
 
+                <div className="home-category-list" ref={danhMucScrollRef}>
+                  {danhSachDanhMuc.map((danhMuc, index) => (
+                    <Link
+                      to={`/danh-muc?danhMuc=${encodeURIComponent(danhMuc.duongDanSeo)}`}
+                      key={danhMuc.id}
+                      className={`home-category-item category-color-${index % 8}`}
+                    >
+                      <div className="home-category-icon">
+                        {danhMuc.icon || "🍽️"}
+                      </div>
+                      <span className="home-category-name">
+                        {danhMuc.tenDanhMuc}
+                      </span>
+                    </Link>
+                  ))}
+
+                  {danhSachDanhMuc.length === 0 && (
+                    <div className="home-empty">Chưa có danh mục để hiển thị.</div>
+                  )}
+                </div>
+
+                {danhSachDanhMuc.length > 4 && (
+                  <button
+                    type="button"
+                    className="home-category-nav home-category-nav-next"
+                    onClick={() => cuonDanhMuc(1)}
+                    aria-label="Danh mục sau"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                )}
               </div>
             )}
 
@@ -584,55 +602,62 @@ function TrangChu() {
             {dangTai ? (
               <div className="home-loading">
                 <LoaderCircle className="loading-icon" />
-                <span>Đang tải danh mục...</span>
+                <span>Đang tải tin tức...</span>
               </div>
             ) : (
-              <div className="home-category-slider">
-                {danhSachDanhMuc.length > 4 && (
-                  <button
-                    type="button"
-                    className="home-category-nav home-category-nav-prev"
-                    onClick={() => cuonDanhMuc(-1)}
-                    aria-label="Danh mục trước"
-                  >
-                    <ChevronLeft size={18} />
-                  </button>
-                )}
+              <div className="home-news-grid">
 
-                <div className="home-category-list" ref={danhMucScrollRef}>
-                  {danhSachDanhMuc.map((danhMuc, index) => (
-                    <Link
-                      to={`/danh-muc?danhMuc=${encodeURIComponent(danhMuc.duongDanSeo)}`}
-                      key={danhMuc.id}
-                      className={`home-category-item category-color-${index % 8}`}
-                    >
-                      <div className="home-category-icon">
-                        {danhMuc.icon || "🍽️"}
-                      </div>
-                      <span className="home-category-name">
-                        {danhMuc.tenDanhMuc}
+                {danhSachTinTuc.map((baiViet) => (
+                  <Link
+                    to={`/tin-tuc/${baiViet.duongDanSeo}`}
+                    className="home-news-card"
+                    key={baiViet.id}
+                  >
+
+                    <div className="home-news-image">
+
+                      {baiViet.hinhDaiDien ? (
+                        <img
+                          src={xuLyUrlAnh(baiViet.hinhDaiDien)}
+                          alt={
+                            baiViet.hinhDaiDienAlt ||
+                            baiViet.tieuDe
+                          }
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="home-no-image">
+                          <ImageOff size={30} />
+                        </div>
+                      )}
+
+                      <span className="home-news-category">
+                        {baiViet.tenDanhMuc || "Tin tức"}
                       </span>
-                    </Link>
-                  ))}
 
-                  {danhSachDanhMuc.length === 0 && (
-                    <div className="home-empty">Chưa có danh mục để hiển thị.</div>
-                  )}
-                </div>
+                    </div>
 
-                {danhSachDanhMuc.length > 4 && (
-                  <button
-                    type="button"
-                    className="home-category-nav home-category-nav-next"
-                    onClick={() => cuonDanhMuc(1)}
-                    aria-label="Danh mục sau"
-                  >
-                    <ChevronRight size={18} />
-                  </button>
+                    <div className="home-news-content">
+
+                      <h3>{baiViet.tieuDe}</h3>
+
+                      <span className="home-news-date">
+                        {dinhDangNgay(baiViet.ngayDang)}
+                      </span>
+
+                    </div>
+
+                  </Link>
+                ))}
+
+                {danhSachTinTuc.length === 0 && (
+                  <div className="home-empty">
+                    Hiện chưa có bài viết nào.
+                  </div>
                 )}
+
               </div>
             )}
-
 
           </div>
 
