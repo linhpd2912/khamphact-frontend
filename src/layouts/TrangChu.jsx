@@ -30,33 +30,6 @@ import API from "../Api";
 
 const API_IMAGE_URL = API.BACKEND;
 
-const danhMucScrollRef = useRef(null);
-
-// Cuộn ngang theo nút mũi tên (trượt ~80% chiều rộng khối)
-const cuonDanhMuc = (huong) => {
-  const el = danhMucScrollRef.current;
-  if (!el) return;
-  el.scrollBy({
-    left: huong * el.clientWidth * 0.8,
-    behavior: "smooth",
-  });
-};
-
-// Lăn chuột dọc => cuộn ngang khi trỏ vào khối danh mục
-useEffect(() => {
-  const el = danhMucScrollRef.current;
-  if (!el) return;
-
-  const xuLyConLut = (e) => {
-    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      e.preventDefault();
-      el.scrollLeft += e.deltaY;
-    }
-  };
-
-  el.addEventListener("wheel", xuLyConLut, { passive: false });
-  return () => el.removeEventListener("wheel", xuLyConLut);
-}, []);
 
 const xuLyUrlAnh = (url) => {
   if (!url) return "";
@@ -98,6 +71,34 @@ function TrangChu() {
 
   const [dangTai, setDangTai] = useState(true);
   const [loiTaiDuLieu, setLoiTaiDuLieu] = useState("");
+
+  const danhMucScrollRef = useRef(null);
+
+  // Cuộn ngang theo nút mũi tên (trượt ~80% chiều rộng khối)
+  const cuonDanhMuc = (huong) => {
+    const el = danhMucScrollRef.current;
+    if (!el) return;
+    el.scrollBy({
+      left: huong * el.clientWidth * 0.8,
+      behavior: "smooth",
+    });
+  };
+
+  // Lăn chuột dọc => cuộn ngang khi trỏ vào khối danh mục
+  useEffect(() => {
+    const el = danhMucScrollRef.current;
+    if (!el) return;
+
+    const xuLyConLut = (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+      }
+    };
+
+    el.addEventListener("wheel", xuLyConLut, { passive: false });
+    return () => el.removeEventListener("wheel", xuLyConLut);
+  }, []);
 
   useEffect(() => {
     const taiDuLieuTrangChu = async () => {
