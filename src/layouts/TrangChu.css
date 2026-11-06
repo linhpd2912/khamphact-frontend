@@ -111,99 +111,6 @@
    DANH MỤC
 ===================================== */
 
-.home-category-section {
-  padding-top: 38px;
-}
-
-.home-category-list {
-  display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 15px;
-}
-
-.home-category-item {
-  min-height: 125px;
-  padding: 15px 8px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 11px;
-
-  border: 1px solid transparent;
-  border-radius: 17px;
-
-  text-decoration: none;
-  color: #302438;
-
-  transition: 0.25s;
-}
-
-.home-category-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 22px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 33px;
-  transition: 0.25s;
-}
-
-.home-category-name {
-  font-size: 13px;
-  font-weight: 700;
-  text-align: center;
-  line-height: 1.4;
-}
-
-.home-category-item:hover {
-  transform: translateY(-5px);
-  border-color: #f0dce8;
-  background: #ffffff;
-  box-shadow: 0 8px 24px rgba(79, 35, 76, 0.07);
-}
-
-.home-category-item:hover .home-category-icon {
-  transform: scale(1.08);
-}
-
-/* Màu nền icon */
-
-.category-color-0 .home-category-icon {
-  background: #ffe9e8;
-}
-
-.category-color-1 .home-category-icon {
-  background: #fff0dd;
-}
-
-.category-color-2 .home-category-icon {
-  background: #e6f3ed;
-}
-
-.category-color-3 .home-category-icon {
-  background: #ffe7e5;
-}
-
-.category-color-4 .home-category-icon {
-  background: #e8effb;
-}
-
-.category-color-5 .home-category-icon {
-  background: #ffebec;
-}
-
-.category-color-6 .home-category-icon {
-  background: #e9f3e7;
-}
-
-.category-color-7 .home-category-icon {
-  background: #f6eaf0;
-}
 
 /* =====================================
    QUÁN NỔI BẬT
@@ -658,9 +565,6 @@
 ===================================== */
 
 @media (max-width: 1100px) {
-  .home-category-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 
   .home-restaurant-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -679,15 +583,6 @@
 
   .home-section-heading h2 {
     font-size: 21px;
-  }
-
-  .home-category-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .home-category-item {
-    min-height: 110px;
   }
 
   .home-category-icon {
@@ -752,15 +647,6 @@
     font-size: 11px;
   }
 
-  .home-category-list {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 4px;
-  }
-
-  .home-category-item {
-    min-height: 100px;
-    padding: 8px 3px;
-  }
 
   .home-category-icon {
     width: 52px;
@@ -1032,34 +918,93 @@ body,
    DANH MỤC
 ===================================== */
 
-.home-category-section {
-  padding: 48px 0 58px;
+
+/* ===== KHỐI DANH MỤC CUỘN NGANG ===== */
+.home-category-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .home-category-list {
+  display: flex;
   gap: 20px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 4px 2px 14px;
+
+  /* Ẩn thanh cuộn */
+  scrollbar-width: none;
+}
+.home-category-list::-webkit-scrollbar {
+  display: none;
 }
 
+/* Mỗi ô chiếm 1/4 (4 ô hiển thị, 3 khoảng cách 20px) */
 .home-category-item {
-  min-height: 145px;
-
-  border: 1px solid rgba(112, 36, 119, 0.09);
-  border-radius: 20px;
-
-  background: rgba(255, 255, 255, 0.78);
-
-  box-shadow: 0 8px 25px rgba(76, 39, 69, 0.045);
-
-  transition: all 0.3s ease;
+  flex: 0 0 calc((100% - 60px) / 4);
+  scroll-snap-align: start;
+  /* giữ nguyên min-height, padding, border-radius... như cũ */
 }
 
-.home-category-item:hover {
-  transform: translateY(-6px);
-
+/* Nút mũi tên */
+.home-category-nav {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(112, 36, 119, 0.15);
   background: #ffffff;
-  border-color: rgba(232, 93, 42, 0.28);
+  color: #702477;
 
-  box-shadow: 0 14px 32px rgba(103, 32, 95, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(76, 39, 69, 0.1);
+  transition: 0.2s;
+  z-index: 2;
+}
+.home-category-nav:hover {
+  background: #702477;
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .home-category-item {
+    flex: 0 0 calc((100% - 40px) / 3); /* tablet: 3 ô */
+  }
+}
+
+@media (max-width: 768px) {
+  .home-category-list {
+    gap: 12px;
+  }
+  .home-category-item {
+    flex: 0 0 calc((100% - 24px) / 3); /* mobile: 3 ô, vuốt ngang */
+  }
+  .home-category-nav {
+    display: none; /* mobile dùng vuốt tay, ẩn nút */
+  }
+}
+
+@media (max-width: 480px) {
+  .home-category-list {
+    gap: 10px;
+  }
+  .home-category-item {
+    flex: 0 0 calc((100% - 10px) / 2.6); /* hiện ~2.6 ô để gợi ý có thể cuộn */
+    min-height: 100px;
+  }
 }
 
 /* =====================================
@@ -1191,9 +1136,7 @@ body,
     padding-bottom: 42px;
   }
 
-  .home-category-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  
 }
 
 @media (max-width: 480px) {

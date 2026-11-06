@@ -60,7 +60,7 @@ function Header() {
       path: "/dich-vu",
     },
     {
-      label: "Đăng ký đăng quán",
+      label: "Liên hệ hợp tác",
       path: "/lien-he",
     },
     {
