@@ -1398,3 +1398,83 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===== DANH MỤC: CAROUSEL CUỘN NGANG (giống trang chủ) ===== */
+.danh-muc-slider {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.danh-muc-grid {
+  display: flex;
+  gap: 20px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 4px 2px 16px;
+  scrollbar-width: none; /* Firefox */
+}
+.danh-muc-grid::-webkit-scrollbar {
+  display: none; /* Chrome / Safari / Edge */
+}
+
+/* Mỗi card: 4 ô / hàng trên PC (3 khoảng cách 20px) */
+.danh-muc-item {
+  flex: 0 0 calc((100% - 60px) / 4);
+  scroll-snap-align: start;
+  /* giữ nguyên min-height, padding, border-radius, animation... như cũ */
+}
+
+/* Nút mũi tên */
+.danh-muc-nav {
+  flex-shrink: 0;
+  align-self: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 93, 42, 0.2);
+  background: #ffffff;
+  color: #e85d2a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(56, 35, 74, 0.1);
+  transition: 0.2s;
+  z-index: 2;
+}
+.danh-muc-nav:hover {
+  background: #e85d2a;
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+/* Responsive: ghi đè grid-template-columns cũ */
+@media (max-width: 1024px) {
+  .danh-muc-item {
+    flex: 0 0 calc((100% - 40px) / 3); /* tablet: 3 ô */
+  }
+}
+
+@media (max-width: 768px) {
+  .danh-muc-grid { gap: 14px; }
+  .danh-muc-item {
+    flex: 0 0 calc((100% - 14px) / 2.4); /* mobile: ~2.4 ô để gợi ý cuộn */
+  }
+  .danh-muc-nav { display: none; } /* mobile dùng vuốt tay */
+}
+
+@media (max-width: 480px) {
+  .danh-muc-grid { gap: 10px; }
+  .danh-muc-item {
+    flex: 0 0 calc((100% - 10px) / 1.7); /* điện thoại nhỏ: ~1.7 ô */
+  }
+}
