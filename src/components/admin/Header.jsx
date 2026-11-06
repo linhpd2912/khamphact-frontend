@@ -3,55 +3,55 @@ import { useLocation } from "react-router-dom";
 import "./Header.css";
 
 const pageTitles = {
-  "/admin/dashboard": [
+  "/ad/dashboard": [
     "Dashboard",
     "Tổng quan hoạt động website"
   ],
-  "/admin/quan-an": [
+  "/ad/quan-an": [
     "Danh sách quán",
     "Quản lý thông tin địa điểm ăn uống"
   ],
-  "/admin/danh-muc-quan": [
+  "/ad/danh-muc-quan": [
     "Danh mục quán",
     "Phân loại địa điểm ăn uống"
   ],
-  "/admin/tien-ich": [
+  "/ad/tien-ich": [
     "Tiện ích",
     "Quản lý tiện ích của quán"
   ],
-  "/admin/tinh-thanh": [
+  "/ad/tinh-thanh": [
     "Tỉnh / thành",
     "Quản lý tỉnh và thành phố"
   ],
-  "/admin/phuong-xa": [
+  "/ad/phuong-xa": [
     "Phường / xã",
     "Quản lý đơn vị hành chính"
   ],
-  "/admin/bai-viet": [
+  "/ad/bai-viet": [
     "Danh sách bài viết",
     "Quản lý nội dung và tin tức"
   ],
-  "/admin/danh-muc-bai-viet": [
+  "/ad/danh-muc-bai-viet": [
     "Danh mục bài viết",
     "Phân loại nội dung"
   ],
-  "/admin/hop-tac": [
+  "/ad/hop-tac": [
     "Hợp tác",
     "Tiếp nhận đăng ký hợp tác"
   ],
-  "/admin/danh-gia": [
+  "/ad/danh-gia": [
     "Đánh giá",
     "Theo dõi phản hồi của người dùng"
   ],
-  "/admin/banner": [
+  "/ad/banner": [
     "Banner",
     "Quản lý hình ảnh hiển thị"
   ],
-  "/admin/faq": [
+  "/ad/faq": [
     "FAQ",
     "Câu hỏi thường gặp"
   ],
-  "/admin/cau-hinh": [
+  "/ad/cau-hinh": [
     "Cấu hình website",
     "Thiết lập thông tin website"
   ]

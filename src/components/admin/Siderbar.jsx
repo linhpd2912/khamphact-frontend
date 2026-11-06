@@ -24,7 +24,7 @@ const groups = [
     label: "TỔNG QUAN",
     items: [{
       label: "Dashboard",
-      to: "/admin/dashboard",
+      to: "/ad/dashboard",
       icon: LayoutDashboard
     }]
   },
@@ -35,19 +35,19 @@ const groups = [
     items: [
       {
         label: "Danh sách quán",
-        to: "/admin/quan-an",
+        to: "/ad/quan-an",
         icon: Store
       },
 
       {
         label: "Danh mục quán",
-        to: "/admin/danh-muc-quan",
+        to: "/ad/danh-muc-quan",
         icon: Tags
       },
 
       {
         label: "Tiện ích",
-        to: "/admin/tien-ich",
+        to: "/ad/tien-ich",
         icon: Sparkles
       }
     ]
@@ -59,12 +59,12 @@ const groups = [
     items: [
       {
         label: "Tỉnh / thành",
-        to: "/admin/tinh-thanh",
+        to: "/ad/tinh-thanh",
         icon: MapPinned
       },
       {
         label: "Phường / xã",
-        to: "/admin/phuong-xa",
+        to: "/ad/phuong-xa",
         icon: Map
       }
     ]
@@ -76,12 +76,12 @@ const groups = [
     items: [
       {
         label: "Danh sách bài viết",
-        to: "/admin/bai-viet",
+        to: "/ad/bai-viet",
         icon: Newspaper
       },
       {
         label: "Danh mục bài viết",
-        to: "/admin/danh-muc-bai-viet",
+        to: "/ad/danh-muc-bai-viet",
         icon: Tags
       }
     ]
@@ -93,22 +93,22 @@ const groups = [
     items: [
       {
         label: "Hợp tác",
-        to: "/admin/hop-tac",
+        to: "/ad/hop-tac",
         icon: Handshake
       },
       {
         label: "Đánh giá",
-        to: "/admin/danh-gia",
+        to: "/ad/danh-gia",
         icon: Star
       },
       {
         label: "Banner",
-        to: "/admin/banner",
+        to: "/ad/banner",
         icon: Images
       },
       {
         label: "FAQ",
-        to: "/admin/faq",
+        to: "/ad/faq",
         icon: CircleHelp
       }
     ]
@@ -119,7 +119,7 @@ const groups = [
     label: "HỆ THỐNG",
     items: [{
       label: "Cấu hình website",
-      to: "/admin/cau-hinh",
+      to: "/ad/cau-hinh",
       icon: Settings
     }]
   }
