@@ -52,7 +52,8 @@ export default function QuanAnDanhMucModal({ quanAn, onClose }) {
 
   // Tải toàn bộ danh mục trong hệ thống
   const taiDanhMucHeThong = useCallback(async () => {
-    const response = await fetch(API_DANH_MUC);
+    // const response = await fetch(API_DANH_MUC);
+    const response = await fetch(`${API_DANH_MUC}/hoat-dong`);
 
     if (!response.ok) {
       throw new Error("Không thể tải danh sách danh mục hệ thống.");
