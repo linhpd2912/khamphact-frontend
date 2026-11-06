@@ -28,6 +28,7 @@ import GioMoCuaModal from "../gio-mo-cua/GioMoCuaModal";
 import QuanAnDanhMucModal from "../quan-an-danh-muc/QuanAnDanhMucModal";
 import HinhAnhQuanModal from "../hinh-anh-quan/HinhAnhQuanModal";
 import QuanAnTienIchModal from "../quan-an-tien-ich/QuanAnTienIchModal";
+import API from "../../../Api";
 
 
 const TRANG_THAI_MAC_DINH = {
@@ -177,7 +178,8 @@ function QuanLyQuanAn() {
     async function taiTinhThanh() {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/tinh-thanh"
+          // "http://localhost:8080/api/tinh-thanh"
+          `${API.BACKEND}/api/tinh-thanh`
         );
 
         if (!response.ok) {
@@ -207,7 +209,7 @@ function QuanLyQuanAn() {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/phuong-xa/tinh-thanh/${tinhThanhId}`
+        `${API.BACKEND}/api/phuong-xa/tinh-thanh/${tinhThanhId}`
       );
 
       if (!response.ok) {

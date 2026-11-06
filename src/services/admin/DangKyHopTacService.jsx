@@ -1,4 +1,7 @@
-const API_BASE_URL = "http://localhost:8080/api";
+import API from "../../Api";
+
+// const API_BASE_URL = "http://localhost:8080/api";
+const API_BASE_URL = `${API.BACKEND}/api`;
 
 // Đường dẫn API
 const API_DANG_KY_HOP_TAC = `${API_BASE_URL}/dang-ky-hop-tac`;
