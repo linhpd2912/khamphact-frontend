@@ -1,4 +1,10 @@
-const BACKEND = "http://localhost:8080";
+const BACKEND = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+
+// Nếu dùng Vite (React/Vue):
+// const BACKEND = import.meta.env.VITE_BACKEND_URL || "http://localhost:8080";
+// Nếu dùng Create React App:
+// const BACKEND = process.env.REACT_APP_BACKEND_URL || "http://localhost:8080";
+
 
 const API = {
   BACKEND,
