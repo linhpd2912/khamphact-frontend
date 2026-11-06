@@ -59,6 +59,11 @@ export default function QuanAnDanhMucModal({ quanAn, onClose }) {
     }
 
     const data = await response.json();
+
+    console.log("API DANH MỤC:", data);
+    console.log("Tổng số danh mục:", data.totalElements);
+    console.log("Tổng số trang:", data.totalPages);
+    console.log("Số danh mục hiện tại:", data.content?.length);
     setDanhMucHeThong(layDanhSach(data));
   }, []);
 
