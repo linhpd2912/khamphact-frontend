@@ -57,6 +57,7 @@ export default function App() {
 
 
 
+
       {/* Khung giao diện quản trị */}
       <Route path="/ad" element={<AdminLayout />}>
         <Route path="tinh-thanh" element={<QuanLyTinh />} />
