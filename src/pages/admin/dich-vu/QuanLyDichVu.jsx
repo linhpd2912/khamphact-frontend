@@ -25,6 +25,7 @@ import {
 import "./QuanLyDichVu.css";
 import API from "../../../Api";
 import DichVuDanhMucModal from "../dich-vu-danh-muc/DichVuDanhMucModal";
+import DichVuTienIchModal from "../dich-vu-tien-ich/DichVuTienIchModal";
 
 const FORM_MAC_DINH = {
   tenDichVu: "",
@@ -138,6 +139,7 @@ function QuanLyDichVu() {
   const [dangTaiPhuong, setDangTaiPhuong] = useState(false);
 
   const [dichVuGanDanhMuc, setDichVuGanDanhMuc] = useState(null);
+  const [dichVuGanTienIch, setDichVuGanTienIch] = useState(null);
 
   const [thongBao, setThongBao] = useState(null);
 
@@ -499,8 +501,8 @@ function QuanLyDichVu() {
                   </button>
                   <button
                     type="button"
-                    onClick={() =>
-                      hienThongBao("Phần tiện ích dịch vụ sẽ được triển khai ở bước tiếp theo.", "info")}>
+                    onClick={() => setDichVuGanTienIch(item)}
+                  >
                     <Sparkles size={15} /> Tiện ích
                   </button>
                 </div>
@@ -698,6 +700,13 @@ function QuanLyDichVu() {
         <DichVuDanhMucModal
           dichVu={dichVuGanDanhMuc}
           onClose={() => setDichVuGanDanhMuc(null)}
+        />
+      )}
+
+      {dichVuGanTienIch && (
+        <DichVuTienIchModal
+          dichVu={dichVuGanTienIch}
+          onClose={() => setDichVuGanTienIch(null)}
         />
       )}
     </div>

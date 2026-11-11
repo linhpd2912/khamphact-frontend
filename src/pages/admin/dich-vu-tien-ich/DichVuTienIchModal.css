@@ -1,0 +1,620 @@
+/* Modal tiện ích dịch vụ */
+.qdti-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(29 19 38 / 52%);
+  backdrop-filter: blur(5px);
+  animation: qdti-fade-in 0.18s ease;
+}
+
+.qdti-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 650px;
+  max-height: min(760px, calc(100vh - 40px));
+  overflow: hidden;
+  border-radius: 17px;
+  color: #30243a;
+  background: #fff;
+  box-shadow: 0 25px 80px rgb(25 15 35 / 25%);
+  animation: qdti-modal-in 0.22s ease;
+  font-family: inherit;
+}
+
+.qdti-modal *,
+.qdti-modal *::before,
+.qdti-modal *::after {
+  box-sizing: border-box;
+}
+
+.qdti-modal button,
+.qdti-modal input {
+  font: inherit;
+}
+
+.qdti-modal button:focus-visible,
+.qdti-modal input:focus-visible {
+  outline: 3px solid rgb(107 45 138 / 22%);
+  outline-offset: 2px;
+}
+
+/* Header */
+.qdti-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 25px 27px 20px;
+  border-bottom: 1px solid #f0ecf3;
+}
+
+.qdti-header-main {
+  min-width: 0;
+}
+
+.qdti-eyebrow {
+  color: #8744a0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.qdti-header h2 {
+  margin: 8px 0 0;
+  color: #30213c;
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -0.6px;
+}
+
+.qdti-dich-vu-name {
+  margin: 7px 0 0;
+  color: #928799;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.qdti-close {
+  display: grid;
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  place-items: center;
+  color: #877b91;
+  border: none;
+  border-radius: 9px;
+  background: #f7f4f9;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.qdti-close:hover {
+  color: #b83245;
+  background: #fff0f0;
+}
+
+/* Thống kê */
+.qdti-summary {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  padding: 17px 27px;
+  border-bottom: 1px solid #f0ecf3;
+  background: #fdfbfe;
+}
+
+.qdti-summary > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qdti-summary strong {
+  color: #6b2d8a;
+  font-size: 23px;
+  font-weight: 750;
+  line-height: 1;
+}
+
+.qdti-summary span {
+  color: #928799;
+  font-size: 11px;
+}
+
+/* Cảnh báo dịch vụ ngừng hoạt động */
+.qdti-inactive {
+  margin: 14px 27px 0;
+  padding: 10px 12px;
+  color: #a72835;
+  border: 1px solid #f0d2d5;
+  border-radius: 8px;
+  background: #fff5f5;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Thanh công cụ */
+.qdti-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 18px 27px 0;
+}
+
+.qdti-tabs {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  border-bottom: 1px solid #ece7f0;
+}
+
+.qdti-tabs > button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 39px;
+  padding: 0 0 11px;
+  color: #928899;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.qdti-tabs > button::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: transparent;
+  content: "";
+}
+
+.qdti-tabs > button.active {
+  color: #6b2d8a;
+}
+
+.qdti-tabs > button.active::after {
+  background: #6b2d8a;
+}
+
+.qdti-tabs > button > span {
+  display: inline-grid;
+  min-width: 21px;
+  height: 20px;
+  padding: 0 5px;
+  place-items: center;
+  color: #8b7797;
+  border-radius: 6px;
+  background: #f2edf6;
+  font-size: 10px;
+}
+
+.qdti-tabs > button.active > span {
+  color: #6b2d8a;
+  background: #eee1f6;
+}
+
+.qdti-tabs > button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.qdti-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 39px;
+  padding: 0 11px;
+  color: #96889e;
+  border: 1px solid #e9e3ee;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.qdti-search:focus-within {
+  border-color: #a47bb8;
+}
+
+.qdti-search input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  color: #382b42;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 12px;
+}
+
+.qdti-search input:focus-visible {
+  outline: none;
+}
+
+.qdti-search input::placeholder {
+  color: #b0a6b8;
+}
+
+.qdti-search > button {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  place-items: center;
+  color: #928799;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.qdti-search > button:hover {
+  color: #b83245;
+  background: #fff0f0;
+}
+
+/* Danh sách tiện ích */
+.qdti-content {
+  flex: 1;
+  min-height: 180px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 27px;
+}
+
+.qdti-list {
+  width: 100%;
+}
+
+.qdti-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 69px;
+  padding: 11px 0;
+  border-bottom: 1px solid #f0edf3;
+  animation: qdti-row-in 0.2s ease both;
+}
+
+.qdti-row:last-child {
+  border-bottom: none;
+}
+
+.qdti-row:hover .qdti-item-icon {
+  color: #6b2d8a;
+  background: #eee1f6;
+}
+
+.qdti-item-icon {
+  display: grid;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  color: #80539a;
+  border-radius: 10px;
+  background: #f7f1fa;
+  transition: background 0.2s ease;
+}
+
+.qdti-item-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.qdti-item-info strong {
+  overflow: hidden;
+  color: #35283f;
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qdti-item-info > span {
+  color: #a198a8;
+  font-size: 10px;
+}
+
+.qdti-add,
+.qdti-remove {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 76px;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.qdti-add {
+  color: #783c97;
+  border-color: #e8d8f1;
+  background: #faf5fd;
+}
+
+.qdti-add:hover:not(:disabled) {
+  color: #57216f;
+  border-color: #c7a7db;
+  background: #f1e5f8;
+}
+
+.qdti-remove {
+  color: #aa7477;
+  border-color: #f1e7e7;
+  background: #fff;
+}
+
+.qdti-remove:hover:not(:disabled) {
+  color: #b83245;
+  border-color: #f0caca;
+  background: #fff3f3;
+}
+
+.qdti-add:disabled,
+.qdti-remove:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+/* Trạng thái rỗng / đang tải */
+.qdti-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 210px;
+  color: #968a9e;
+  font-size: 12px;
+}
+
+.qdti-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+.qdti-empty-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 13px;
+  place-items: center;
+  color: #8a61a0;
+  border-radius: 50%;
+  background: #f5eef9;
+}
+
+.qdti-empty h3 {
+  margin: 0;
+  color: #45374f;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.qdti-empty p {
+  max-width: 290px;
+  margin: 8px 0 0;
+  color: #a098a7;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* Footer */
+.qdti-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 17px 27px;
+  border-top: 1px solid #eee9f2;
+  background: #fdfbfe;
+}
+
+.qdti-footer > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #91869b;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.qdti-footer > span svg {
+  flex-shrink: 0;
+  color: #16865b;
+}
+
+.qdti-done {
+  display: inline-flex;
+  min-height: 37px;
+  padding: 0 17px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  background: #6b2d8a;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.qdti-done:hover {
+  background: #4b1f63;
+}
+
+/* Thông báo */
+.qdti-toast {
+  position: absolute;
+  right: 16px;
+  bottom: 72px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 12px 13px;
+  color: #55445f;
+  border: 1px solid #e9e2ed;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(35 22 44 / 13%);
+  font-size: 11px;
+  line-height: 1.6;
+  animation: qdti-row-in 0.2s ease;
+}
+
+.qdti-toast > svg {
+  flex-shrink: 0;
+}
+
+.qdti-toast-success > svg {
+  color: #16865b;
+}
+
+.qdti-toast-error > svg {
+  color: #c0394b;
+}
+
+.qdti-toast > span {
+  overflow-wrap: anywhere;
+}
+
+.qdti-toast > button {
+  display: grid;
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  place-items: center;
+  color: #928799;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.qdti-toast > button:hover {
+  background: #f5f0f8;
+}
+
+/* Animation */
+.qdti-spin {
+  animation: qdti-spin 1s linear infinite;
+}
+
+@keyframes qdti-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes qdti-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes qdti-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes qdti-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .qdti-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .qdti-modal {
+    max-height: 94vh;
+    border-radius: 17px 17px 0 0;
+  }
+
+  .qdti-header {
+    padding: 20px 18px 16px;
+  }
+
+  .qdti-header h2 {
+    font-size: 20px;
+  }
+
+  .qdti-summary {
+    gap: 20px;
+    padding: 15px 18px;
+  }
+
+  .qdti-toolbar {
+    padding: 16px 18px 0;
+  }
+
+  .qdti-tabs {
+    gap: 16px;
+  }
+
+  .qdti-tabs > button {
+    font-size: 11px;
+  }
+
+  .qdti-content {
+    padding: 0 18px;
+  }
+
+  .qdti-footer {
+    padding: 14px 18px;
+  }
+
+  .qdti-footer > span {
+    max-width: 65%;
+  }
+}
