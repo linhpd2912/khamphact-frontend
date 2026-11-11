@@ -47,7 +47,7 @@ async function request(url, options = {}) {
 const gioMoCuaService = {
   // Lấy giờ mở cửa của một quán.
   layTheoQuanAn(quanAnId) {
-    return request(`${GIO_MO_CUA_API}/quan-an/${quanAnId}`);
+    return request(`${GIO_MO_CUA_API}/quan-an/${quanAnId}`);  
   },
 
   // Thêm giờ mở cửa.
