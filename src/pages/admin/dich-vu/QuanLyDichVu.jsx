@@ -26,6 +26,7 @@ import "./QuanLyDichVu.css";
 import API from "../../../Api";
 import DichVuDanhMucModal from "../dich-vu-danh-muc/DichVuDanhMucModal";
 import DichVuTienIchModal from "../dich-vu-tien-ich/DichVuTienIchModal";
+import GioMoCuaDichVuModal from "../gio-mo-cua/GioMoCuaDichVuModal";
 
 const FORM_MAC_DINH = {
   tenDichVu: "",
@@ -140,6 +141,7 @@ function QuanLyDichVu() {
 
   const [dichVuGanDanhMuc, setDichVuGanDanhMuc] = useState(null);
   const [dichVuGanTienIch, setDichVuGanTienIch] = useState(null);
+  const [dichVuXemGioMoCua, setDichVuXemGioMoCua] = useState(null);
 
   const [thongBao, setThongBao] = useState(null);
 
@@ -483,8 +485,8 @@ function QuanLyDichVu() {
                 <div className="qldv-related-grid">
                   <button
                     type="button"
-                    onClick={() =>
-                      hienThongBao("Phần giờ mở cửa dùng chung sẽ được kết nối ở bước tiếp theo.", "info")}>
+                    onClick={() => setDichVuXemGioMoCua(item)}
+                  >
                     <Clock size={15} /> Giờ mở cửa
                   </button>
                   <button
@@ -707,6 +709,13 @@ function QuanLyDichVu() {
         <DichVuTienIchModal
           dichVu={dichVuGanTienIch}
           onClose={() => setDichVuGanTienIch(null)}
+        />
+      )}
+
+      {dichVuXemGioMoCua && (
+        <GioMoCuaDichVuModal
+          dichVu={dichVuXemGioMoCua}
+          onClose={() => setDichVuXemGioMoCua(null)}
         />
       )}
     </div>
