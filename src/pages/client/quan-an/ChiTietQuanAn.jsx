@@ -9,11 +9,11 @@ import {
 } from "lucide-react";
 import Header from "../../../components/client/Header";
 import Footer from "../../../components/client/Footer";
-import quanAnService from "../../../services/admin/QuanAnService";
-import gioMoCuaService from "../../../services/admin/GioMoCuaService";
-import HinhAnhQuanService from "../../../services/admin/HinhAnhQuanService";
-import quanAnDanhMucService from "../../../services/admin/QuanAnDanhMucService";
-import { layTienIchCuaQuan } from "../../../services/admin/QuanAnTienIchService";
+import quanAnService from "../../../services/admin/quan-an/QuanAnService";
+import gioMoCuaService from "../../../services/admin/quan-an/GioMoCuaService";
+import HinhAnhQuanService from "../../../services/admin/quan-an/HinhAnhQuanService";
+import quanAnDanhMucService from "../../../services/admin/quan-an/QuanAnDanhMucService";
+import { layTienIchCuaQuan } from "../../../services/admin/quan-an/QuanAnTienIchService";
 import danhMucService from "../../../services/client/DanhMucService";
 import API from "../../../Api";
 import "./ChiTietQuanAn.css";

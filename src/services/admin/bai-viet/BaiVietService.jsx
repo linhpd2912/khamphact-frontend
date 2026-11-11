@@ -1,4 +1,4 @@
-import API from "../../Api";
+import API from "../../../Api";
 
 const API_URL = API.BAI_VIET;
 

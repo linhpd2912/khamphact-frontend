@@ -9,7 +9,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 
-import gioMoCuaService from "../../../services/admin/GioMoCuaService";
+import gioMoCuaService from "../../../services/admin/quan-an/GioMoCuaService";
 import "./GioMoCuaModal.css";
 
 const CAC_THU = [

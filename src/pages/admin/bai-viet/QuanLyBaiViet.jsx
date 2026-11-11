@@ -27,9 +27,9 @@ import {
   RotateCcw,
 } from "lucide-react";
 
-import * as baiVietService from "../../../services/admin/BaiVietService";
-import * as danhMucBaiVietService from "../../../services/admin/DanhMucBaiVietService";
-import * as hinhAnhService from "../../../services/admin/HinhAnhBaiVietService"
+import * as baiVietService from "../../../services/admin/bai-viet/BaiVietService";
+import * as danhMucBaiVietService from "../../../services/admin/bai-viet/DanhMucBaiVietService";
+import * as hinhAnhService from "../../../services/admin/bai-viet/HinhAnhBaiVietService"
 
 import "./QuanLyBaiViet.css";
 import TrinhSoanThao from "../../../components/admin/bai-viet/TrinhSoanThao";

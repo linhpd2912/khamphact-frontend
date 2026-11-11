@@ -1,4 +1,4 @@
-import API from "../../Api";
+import API from "../../../Api";
 
 const DANH_MUC_API = API.DANH_MUC;
 

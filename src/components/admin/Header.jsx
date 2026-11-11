@@ -17,7 +17,15 @@ const pageTitles = {
   ],
   "/ad/tien-ich": [
     "Tiện ích",
-    "Quản lý tiện ích của quán"
+    "Quản lý tiện ích của quán và dịch vụ"
+  ],
+  "/ad/dich-vu": [
+    "Danh sách dịch vụ",
+    "Quản lý thông tin địa điểm dịch vụ"
+  ],
+  "/ad/danh-muc-dich-vu": [
+    "Danh mục dịch vụ",
+    "Phân loại địa điểm dịch vụ"
   ],
   "/ad/tinh-thanh": [
     "Tỉnh / thành",
@@ -60,19 +68,45 @@ const pageTitles = {
 export default function Header({ onMenuClick }) {
   const { pathname } = useLocation();
   const [title, subtitle] = pageTitles[pathname] || [
-  "Trang quản trị",
-  "Chào mừng đến với hệ thống quản trị Cửu Long",
-];
+    "Trang quản trị",
+    "Chào mừng đến với hệ thống quản trị Cửu Long",
+  ];
   return (
     <header className="admin-header">
       <div className="header-page">
-        <button className="mobile-menu-button" onClick={onMenuClick} aria-label="Mở menu"><Menu size={21} /></button>
-        <div><div className="breadcrumbs">QUẢN TRỊ <span>/</span> <b>{title.toLocaleUpperCase("vi-VN")}</b></div><h1>{title}</h1><p>{subtitle}</p></div>
+        <button
+          className="mobile-menu-button"
+          onClick={onMenuClick}
+          aria-label="Mở menu">
+          <Menu size={21} />
+        </button>
+        <div>
+          <div className="breadcrumbs">QUẢN TRỊ
+            <span>/</span>
+            <b>{title.toLocaleUpperCase("vi-VN")}</b>
+          </div>
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
+        </div>
       </div>
       <div className="header-actions">
-        <label className="header-search"><Search size={17} /><input aria-label="Tìm kiếm" placeholder="Tìm nhanh..." /><kbd>⌘ K</kbd></label>
-        <button className="icon-button notification-button" aria-label="Thông báo"><Bell size={18} /><i /></button>
-        <button className="header-user"><span className="header-avatar">AD</span><span className="header-user-copy"><strong>Admin</strong><small>Quản trị viên</small></span><ChevronDown size={15} /></button>
+        <label className="header-search">
+          <Search size={17} />
+          <input aria-label="Tìm kiếm" placeholder="Tìm nhanh..." />
+          <kbd>⌘ K</kbd>
+        </label>
+        <button className="icon-button notification-button" aria-label="Thông báo">
+          <Bell size={18} />
+          <i />
+        </button>
+        <button className="header-user">
+          <span className="header-avatar">AD</span>
+          <span className="header-user-copy">
+            <strong>Admin</strong>
+            <small>Quản trị viên</small>
+          </span>
+          <ChevronDown size={15} />
+        </button>
       </div>
     </header>
   );

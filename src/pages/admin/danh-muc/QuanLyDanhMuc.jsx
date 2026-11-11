@@ -23,7 +23,7 @@ import {
   themDanhMuc,
   timKiemDanhMuc,
   xoaDanhMuc
-} from "../../../services/admin/DanhMucService";
+} from "../../../services/admin/quan-an/DanhMucService";
 
 const FORM_MAC_DINH = {
   tenDanhMuc: "",

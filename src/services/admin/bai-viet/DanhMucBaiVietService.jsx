@@ -1,4 +1,4 @@
-import API from "../../Api";
+import API from "../../../Api";
 
 const API_URL = API.DANH_MUC_BAI_VIET;
 

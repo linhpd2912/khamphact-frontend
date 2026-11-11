@@ -32,7 +32,7 @@ import {
   updateOrder,
   checkSlug,
   remove,
-} from "../../../services/admin/DanhMucBaiVietService";
+} from "../../../services/admin/bai-viet/DanhMucBaiVietService";
 
 import "./QuanLyDanhMucBaiViet.css";
 

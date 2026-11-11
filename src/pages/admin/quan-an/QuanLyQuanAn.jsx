@@ -22,8 +22,8 @@ import {
 } from "lucide-react";
 
 import "./QuanLyQuanAn.css";
-import "../../../services/admin/QuanAnService";
-import quanAnService from "../../../services/admin/QuanAnService";
+import "../../../services/admin/quan-an/QuanAnService";
+import quanAnService from "../../../services/admin/quan-an/QuanAnService";
 import GioMoCuaModal from "../gio-mo-cua/GioMoCuaModal";
 import QuanAnDanhMucModal from "../quan-an-danh-muc/QuanAnDanhMucModal";
 import HinhAnhQuanModal from "../hinh-anh-quan/HinhAnhQuanModal";

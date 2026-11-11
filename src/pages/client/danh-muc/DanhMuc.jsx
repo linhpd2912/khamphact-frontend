@@ -10,9 +10,9 @@ import QuanAnTheoDanhMuc from "../../../components/client/danh-muc/QuanAnTheoDan
 import DanhMucBanner from "../../../components/client/danh-muc/DanhMucBanner";
 
 import danhMucService from "../../../services/client/DanhMucService";
-import quanAnService from "../../../services/admin/QuanAnService";
-import quanAnDanhMucService from "../../../services/admin/QuanAnDanhMucService";
-import HinhAnhQuanService from "../../../services/admin/HinhAnhQuanService";
+import quanAnService from "../../../services/admin/quan-an/QuanAnService";
+import quanAnDanhMucService from "../../../services/admin/quan-an/QuanAnDanhMucService";
+import HinhAnhQuanService from "../../../services/admin/quan-an/HinhAnhQuanService";
 
 import "./DanhMuc.css";
 

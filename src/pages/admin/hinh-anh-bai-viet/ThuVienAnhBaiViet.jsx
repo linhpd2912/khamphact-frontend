@@ -10,7 +10,7 @@ import {
   X,
 } from "lucide-react";
 
-import * as hinhAnhService from "../../../services/admin/HinhAnhBaiVietService";
+import * as hinhAnhService from "../../../services/admin/bai-viet/HinhAnhBaiVietService";
 
 import "./ThuVienAnhBaiViet.css";
 

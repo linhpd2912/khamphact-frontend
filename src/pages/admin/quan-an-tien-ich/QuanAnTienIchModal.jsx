@@ -27,7 +27,7 @@ import {
   themTienIchChoQuan,
   xoaTienIchKhoiQuan,
   chuanHoaDanhSachTienIch,
-} from "../../../services/admin/QuanAnTienIchService";
+} from "../../../services/admin/quan-an/QuanAnTienIchService";
 
 import "./QuanAnTienIchModal.css";
 

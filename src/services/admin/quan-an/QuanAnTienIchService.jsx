@@ -1,4 +1,4 @@
-import API from "../../Api";
+import API from "../../../Api";
 
 const API_QUAN_AN_TIEN_ICH = API.QUAN_AN_TIEN_ICH;
 

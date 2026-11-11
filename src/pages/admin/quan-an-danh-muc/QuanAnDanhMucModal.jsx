@@ -10,7 +10,7 @@ import {
   FolderOpen,
 } from "lucide-react";
 
-import quanAnDanhMucService from "../../../services/admin/QuanAnDanhMucService";
+import quanAnDanhMucService from "../../../services/admin/quan-an/QuanAnDanhMucService";
 import "./QuanAnDanhMucModal.css";
 import API from "../../../Api";
 

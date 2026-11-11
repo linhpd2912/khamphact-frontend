@@ -53,6 +53,23 @@ const groups = [
     ]
   },
 
+  {
+    label: "QUẢN LÝ DỊCH VỤ",
+    items: [
+      {
+        label: "Danh sách dịch vụ",
+        to: "/ad/dich-vu",
+        icon: Store
+      },
+
+      {
+        label: "Danh mục dịch vụ",
+        to: "/ad/danh-muc-dich-vu",
+        icon: Tags
+      }
+    ]
+  },
+
   // dia chi
   {
     label: "ĐỊA CHỈ",

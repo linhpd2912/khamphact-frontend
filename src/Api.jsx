@@ -39,6 +39,14 @@ const API = {
 
   CAU_HINH_WEBSITE: `${BACKEND}/api/cau-hinh-website`,
 
+  DANH_MUC_DICH_VU: `${BACKEND}/api/danh-muc-dich-vu`,
+
+  DICH_VU: `${BACKEND}/api/dich-vu`,
+  
+  DICH_VU_DANH_MUC: `${BACKEND}/api/dich-vu-danh-muc`,
+
+  DICH_VU_TIEN_ICH: `${BACKEND}/api/dich-vu-tien-ich`,
+
 }
 
 export default API;

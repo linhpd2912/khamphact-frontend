@@ -1,4 +1,4 @@
-import API from "../../Api";
+import API from "../../../Api";
 
 // API hình ảnh bài viết
 const API_URL = API.HINH_ANH_BAI_VIET;

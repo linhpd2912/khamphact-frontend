@@ -31,7 +31,7 @@ import {
   capNhatTienIch,
   doiTrangThaiTienIch,
   xoaTienIch,
-} from "../../../services/admin/TienIchService";
+} from "../../../services/admin/quan-an/TienIchService";
 
 import "./QuanLyTienIch.css";
 

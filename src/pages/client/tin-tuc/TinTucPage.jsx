@@ -5,9 +5,9 @@ import {
 } from "lucide-react";
 
 // ===> SỬA ĐƯỜNG DẪN CHO ĐÚNG DỰ ÁN <===
-import * as baiVietService from "../../../services/admin/BaiVietService";
-import * as danhMucService from "../../../services/admin/DanhMucBaiVietService";
-import * as hinhAnhService from "../../../services/admin/HinhAnhBaiVietService";
+import * as baiVietService from "../../../services/admin/bai-viet/BaiVietService";
+import * as danhMucService from "../../../services/admin/bai-viet/DanhMucBaiVietService";
+import * as hinhAnhService from "../../../services/admin/bai-viet/HinhAnhBaiVietService";
 
 import ChiTietBaiViet from "./ChiTietBaiViet";
 import "./tin-tuc.css";

@@ -15,7 +15,7 @@ import {
   ArrowDown,
 } from "lucide-react";
 
-import HinhAnhQuanService from "../../../services/admin/HinhAnhQuanService";
+import HinhAnhQuanService from "../../../services/admin/quan-an/HinhAnhQuanService";
 
 import "./HinhAnhQuanModal.css";
 import API from "../../../Api";

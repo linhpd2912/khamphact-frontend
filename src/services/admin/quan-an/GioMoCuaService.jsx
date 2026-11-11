@@ -1,9 +1,7 @@
+import API from "../../../Api";
 
-import API from "../../Api";
+const GIO_MO_CUA_API = API.GIO_MO_CUA;
 
-const QUAN_AN_DANH_MUC_API = API.QUAN_AN_DANH_MUC;
-
-// Hàm gọi API dùng chung
 async function request(url, options = {}) {
   let response;
 
@@ -17,7 +15,7 @@ async function request(url, options = {}) {
     });
   } catch {
     throw new Error(
-      "Không thể kết nối backend. Hãy kiểm tra Spring Boot."
+      "Không thể kết nối đến máy chủ. Hãy kiểm tra backend có đang chạy không."
     );
   }
 
@@ -38,49 +36,42 @@ async function request(url, options = {}) {
   if (!response.ok) {
     throw new Error(
       data?.message ||
-      data?.detail ||
-      `Yêu cầu thất bại: HTTP ${response.status}`
+        data?.detail ||
+        `Yêu cầu thất bại (HTTP ${response.status}).`
     );
   }
 
   return data;
 }
 
-const quanAnDanhMucService = {
-  // Lấy danh sách liên kết của một quán
+const gioMoCuaService = {
+  // Lấy giờ mở cửa của một quán.
   layTheoQuanAn(quanAnId) {
-    return request(`${QUAN_AN_DANH_MUC_API}/quan-an/${quanAnId}`);
+    return request(`${GIO_MO_CUA_API}/quan-an/${quanAnId}`);
   },
 
-  // Lấy danh sách liên kết của một danh mục
-  layTheoDanhMuc(danhMucId) {
-    return request(
-      `${QUAN_AN_DANH_MUC_API}/danh-muc/${danhMucId}`
-    );
-  },
-
-  // Thêm danh mục cho quán
+  // Thêm giờ mở cửa.
   them(payload) {
-    return request(QUAN_AN_DANH_MUC_API, {
+    return request(GIO_MO_CUA_API, {
       method: "POST",
       body: JSON.stringify(payload),
     });
   },
 
-  // Cập nhật liên kết
+  // Cập nhật giờ mở cửa.
   capNhat(id, payload) {
-    return request(`${QUAN_AN_DANH_MUC_API}/${id}`, {
+    return request(`${GIO_MO_CUA_API}/${id}`, {
       method: "PUT",
       body: JSON.stringify(payload),
     });
   },
 
-  // Xóa liên kết quán - danh mục
+  // Xóa giờ mở cửa.
   xoa(id) {
-    return request(`${QUAN_AN_DANH_MUC_API}/${id}`, {
+    return request(`${GIO_MO_CUA_API}/${id}`, {
       method: "DELETE",
     });
   },
 };
 
-export default quanAnDanhMucService;
+export default gioMoCuaService;

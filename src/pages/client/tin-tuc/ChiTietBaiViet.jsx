@@ -5,8 +5,8 @@ import {
 } from "lucide-react";
 
 // ===> SỬA ĐƯỜNG DẪN <===
-import * as baiVietService from "../../../services/admin/BaiVietService";
-import * as hinhAnhService from "../../../services/admin/HinhAnhBaiVietService";
+import * as baiVietService from "../../../services/admin/bai-viet/BaiVietService";
+import * as hinhAnhService from "../../../services/admin/bai-viet/HinhAnhBaiVietService";
 import API from "../../../Api";
 import Header from "../../../components/client/Header";
 import Footer from "../../../components/client/Footer";
