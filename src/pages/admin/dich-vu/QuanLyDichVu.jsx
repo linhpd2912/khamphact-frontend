@@ -24,6 +24,7 @@ import {
 
 import "./QuanLyDichVu.css";
 import API from "../../../Api";
+import DichVuDanhMucModal from "../dich-vu-danh-muc/DichVuDanhMucModal";
 
 const FORM_MAC_DINH = {
   tenDichVu: "",
@@ -135,6 +136,8 @@ function QuanLyDichVu() {
   const [danhSachTinh, setDanhSachTinh] = useState([]);
   const [danhSachPhuong, setDanhSachPhuong] = useState([]);
   const [dangTaiPhuong, setDangTaiPhuong] = useState(false);
+
+  const [dichVuGanDanhMuc, setDichVuGanDanhMuc] = useState(null);
 
   const [thongBao, setThongBao] = useState(null);
 
@@ -476,10 +479,30 @@ function QuanLyDichVu() {
               <div className="qldv-related">
                 <p>QUẢN LÝ THÔNG TIN LIÊN KẾT</p>
                 <div className="qldv-related-grid">
-                  <button type="button" onClick={() => hienThongBao("Phần giờ mở cửa dùng chung sẽ được kết nối ở bước tiếp theo.", "info")}><Clock size={15} /> Giờ mở cửa</button>
-                  <button type="button" onClick={() => hienThongBao("Phần hình ảnh dùng chung sẽ được kết nối ở bước tiếp theo.", "info")}><Images size={15} /> Hình ảnh</button>
-                  <button type="button" onClick={() => hienThongBao("Phần gán danh mục dịch vụ sẽ được triển khai ở bước tiếp theo.", "info")}><Tags size={15} /> Danh mục</button>
-                  <button type="button" onClick={() => hienThongBao("Phần tiện ích dịch vụ sẽ được triển khai ở bước tiếp theo.", "info")}><Sparkles size={15} /> Tiện ích</button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      hienThongBao("Phần giờ mở cửa dùng chung sẽ được kết nối ở bước tiếp theo.", "info")}>
+                    <Clock size={15} /> Giờ mở cửa
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      hienThongBao("Phần hình ảnh dùng chung sẽ được kết nối ở bước tiếp theo.", "info")}>
+                    <Images size={15} /> Hình ảnh
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setDichVuGanDanhMuc(item)}
+                  >
+                    <Tags size={15} /> Danh mục
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      hienThongBao("Phần tiện ích dịch vụ sẽ được triển khai ở bước tiếp theo.", "info")}>
+                    <Sparkles size={15} /> Tiện ích
+                  </button>
                 </div>
               </div>
               <div className="qldv-card-actions">
@@ -669,6 +692,13 @@ function QuanLyDichVu() {
           <span>{thongBao.noiDung}</span>
           <button onClick={() => setThongBao(null)} aria-label="Đóng thông báo"><X size={16} /></button>
         </div>
+      )}
+
+      {dichVuGanDanhMuc && (
+        <DichVuDanhMucModal
+          dichVu={dichVuGanDanhMuc}
+          onClose={() => setDichVuGanDanhMuc(null)}
+        />
       )}
     </div>
   );
