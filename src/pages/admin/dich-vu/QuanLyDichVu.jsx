@@ -27,6 +27,7 @@ import API from "../../../Api";
 import DichVuDanhMucModal from "../dich-vu-danh-muc/DichVuDanhMucModal";
 import DichVuTienIchModal from "../dich-vu-tien-ich/DichVuTienIchModal";
 import GioMoCuaDichVuModal from "../gio-mo-cua/GioMoCuaDichVuModal";
+import HinhAnhDichVuModal from "../hinh-anh-quan/HinhAnhDichVuModal";
 
 const FORM_MAC_DINH = {
   tenDichVu: "",
@@ -142,6 +143,7 @@ function QuanLyDichVu() {
   const [dichVuGanDanhMuc, setDichVuGanDanhMuc] = useState(null);
   const [dichVuGanTienIch, setDichVuGanTienIch] = useState(null);
   const [dichVuXemGioMoCua, setDichVuXemGioMoCua] = useState(null);
+  const [dichVuXemHinhAnh, setDichVuXemHinhAnh] = useState(null);
 
   const [thongBao, setThongBao] = useState(null);
 
@@ -491,8 +493,8 @@ function QuanLyDichVu() {
                   </button>
                   <button
                     type="button"
-                    onClick={() =>
-                      hienThongBao("Phần hình ảnh dùng chung sẽ được kết nối ở bước tiếp theo.", "info")}>
+                    onClick={() => setDichVuXemHinhAnh(item)}
+                  >
                     <Images size={15} /> Hình ảnh
                   </button>
                   <button
@@ -716,6 +718,14 @@ function QuanLyDichVu() {
         <GioMoCuaDichVuModal
           dichVu={dichVuXemGioMoCua}
           onClose={() => setDichVuXemGioMoCua(null)}
+        />
+      )}
+
+      {dichVuXemHinhAnh && (
+        <HinhAnhDichVuModal
+          dichVu={dichVuXemHinhAnh}
+          onClose={() => setDichVuXemHinhAnh(null)}
+          onThongBao={hienThongBao}
         />
       )}
     </div>
