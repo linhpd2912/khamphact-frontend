@@ -57,7 +57,7 @@ function Header() {
     },
     {
       label: "Dịch vụ",
-      path: "/dich-vu",
+      path: "/danh-muc-dich-vu",
     },
     {
       label: "Liên hệ hợp tác",
