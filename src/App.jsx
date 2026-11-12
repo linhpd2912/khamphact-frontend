@@ -17,6 +17,7 @@ import TinTucPage from "./pages/client/tin-tuc/TinTucPage";
 import ChiTietQuanAn from "./pages/client/quan-an/ChiTietQuanAn";
 import QuanLyDanhMucDichVu from "./pages/admin/danh-muc-dich-vu/QuanLyDanhMucDichVu";
 import QuanLyDichVu from "./pages/admin/dich-vu/QuanLyDichVu";
+import DanhMucDichVu from "./pages/client/danh-muc-dich-vu/DanhMucDichVu";
 
 
 // Component bao bọc: lấy slug từ URL + truyền callback điều hướng
@@ -58,6 +59,7 @@ export default function App() {
         }
       />
       <Route path="/tin-tuc/:slug" element={<ChiTietBaiVietRoute />} />
+      <Route path="dich-vu" element={<DanhMucDichVu />} />
 
 
 
