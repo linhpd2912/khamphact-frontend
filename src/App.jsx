@@ -63,6 +63,12 @@ export default function App() {
       <Route path="/danh-muc-dich-vu" element={<DanhMucDichVu />} />
       <Route path="/dich-vu/:slug" element={<ChiTietDichVu />} />
 
+      {/* Các trang thông tin tĩnh, nội dung lấy từ hệ thống bài viết */}
+      <Route path="/gioi-thieu" element={<TrangThongTin danhMucSlug="gioi-thieu" />} />
+      <Route path="/dieu-khoan-su-dung" element={<TrangThongTin danhMucSlug="dieu-khoan-su-dung" />} />
+      <Route path="/chinh-sach-bao-mat" element={<TrangThongTin danhMucSlug="chinh-sach-bao-mat" />} />
+      <Route path="/huong-dan-su-dung" element={<TrangThongTin danhMucSlug="huong-dan-su-dung" />} />
+
 
 
 

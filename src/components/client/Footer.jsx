@@ -125,7 +125,7 @@ function Footer() {
             Giới thiệu
           </Link>
 
-          <Link to="/dieu-khoan">
+          <Link to="/dieu-khoan-su-dung">
             Điều khoản sử dụng
           </Link>
 
@@ -152,7 +152,7 @@ function Footer() {
             Đăng quán ngay
           </Link>
 
-          <Link to="/huong-dan">
+          <Link to="/huong-dan-su-dung">
             Hướng dẫn sử dụng
           </Link>
 

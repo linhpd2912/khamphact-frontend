@@ -63,7 +63,11 @@ function giaiMaVaChuanHoaHTML(html) {
   return ketQua;
 }
 
-export default function ChiTietBaiViet({ slug, onBack, onSelectSlug }) {
+export default function ChiTietBaiViet({ slug,
+  onBack,
+  onSelectSlug,
+  isInfoPage = false,
+  tenTrang }) {
   const [baiViet, setBaiViet] = useState(null);
   const [hinhAnhList, setHinhAnhList] = useState([]);
   const [lienQuan, setLienQuan] = useState([]);
@@ -116,7 +120,8 @@ export default function ChiTietBaiViet({ slug, onBack, onSelectSlug }) {
   useEffect(() => {
     if (!baiViet) return;
     const oldTitle = document.title;
-    document.title = `${baiViet.tieuDeSeo || baiViet.tieuDe} | Ẩm thực Cần Thơ`;
+    document.title = `${baiViet.tieuDeSeo || baiViet.tieuDe} | ${isInfoPage ? "Thông tin" : "Tin tức"
+      }`;
 
     let meta = document.querySelector('meta[name="description"]');
     const oldDesc = meta?.content;
@@ -166,7 +171,8 @@ export default function ChiTietBaiViet({ slug, onBack, onSelectSlug }) {
 
         <div className="tt-container tt-chitiet-inner">
           <button className="tt-quay-lai" onClick={onBack}>
-            <ArrowLeft size={16} /> Quay lại tin tức
+            <ArrowLeft size={16} />
+            {isInfoPage ? "Về trang chủ" : "Quay lại tin tức"}
           </button>
 
           {loading ? (
@@ -189,11 +195,23 @@ export default function ChiTietBaiViet({ slug, onBack, onSelectSlug }) {
               <article className="tt-baiviet">
                 {/* Breadcrumb */}
                 <div className="tt-breadcrumb">
-                  <span onClick={onBack}>Tin tức</span>
+                  <span onClick={onBack}>
+                    {isInfoPage ? "Trang chủ" : "Tin tức"}
+                  </span>
+
                   <ChevronRight size={13} />
-                  <span>{baiViet.tenDanhMuc || "Chung"}</span>
+
+                  <span>
+                    {isInfoPage
+                      ? (tenTrang || baiViet.tenDanhMuc || "Thông tin")
+                      : (baiViet.tenDanhMuc || "Chung")}
+                  </span>
+
                   <ChevronRight size={13} />
-                  <span className="tt-breadcrumb-active">{baiViet.tieuDe}</span>
+
+                  <span className="tt-breadcrumb-active">
+                    {baiViet.tieuDe}
+                  </span>
                 </div>
 
                 {/* Header bài viết */}
@@ -260,7 +278,7 @@ export default function ChiTietBaiViet({ slug, onBack, onSelectSlug }) {
                 )}
 
                 {/* Bài viết liên quan */}
-                {lienQuan.length > 0 && (
+                {!isInfoPage && lienQuan.length > 0 && (
                   <section className="tt-lien-quan">
                     <div className="tt-lien-quan-title">
                       <h3>Bài viết liên quan</h3>
