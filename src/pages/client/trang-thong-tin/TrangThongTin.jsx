@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { FileText } from "lucide-react";
 import * as danhMucService from "../../../services/admin/bai-viet/DanhMucBaiVietService";
 import * as baiVietService from "../../../services/admin/bai-viet/BaiVietService";
-import ChiTietBaiViet from "../tin-tuc/ChiTietBaiViet";
 import Header from "../../../components/client/Header";
 import Footer from "../../../components/client/Footer";
 import "../tin-tuc/tin-tuc.css";
+import ChiTietBaiViet from "../tin-tuc/ChiTietBaiViet";
 
 const NOI_DUNG_TRANG = {
   "gioi-thieu": "Giới thiệu",
@@ -71,10 +71,10 @@ export default function TrangThongTin({ danhMucSlug }) {
   if (baiVietSlug) {
     return (
       <ChiTietBaiViet
-        slug={baiViet.duongDanSeo}
+        slug={baiVietSlug}
         onBack={() => navigate("/")}
         isInfoPage={true}
-        tenTrang={tenDanhMuc}
+        tenTrang={tenTrang}
       />
     );
   }

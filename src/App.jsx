@@ -19,6 +19,7 @@ import QuanLyDanhMucDichVu from "./pages/admin/danh-muc-dich-vu/QuanLyDanhMucDic
 import QuanLyDichVu from "./pages/admin/dich-vu/QuanLyDichVu";
 import DanhMucDichVu from "./pages/client/danh-muc-dich-vu/DanhMucDichVu";
 import ChiTietDichVu from "./pages/client/dich-vu/ChiTietDichVu";
+import TrangThongTin from "./pages/client/trang-thong-tin/TrangThongTin";
 
 
 // Component bao bọc: lấy slug từ URL + truyền callback điều hướng
