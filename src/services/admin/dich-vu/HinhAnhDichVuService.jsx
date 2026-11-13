@@ -41,7 +41,7 @@ const HinhAnhDichVuService = {
     });
 
     const response = await fetch(
-      `${BASE_URL}/upload?dichVuId=${encodeURIComponent(dichVuId)}`,
+      `${BASE_URL}/upload/dich-vu?dichVuId=${encodeURIComponent(dichVuId)}`,
       {
         method: "POST",
         body: formData,
