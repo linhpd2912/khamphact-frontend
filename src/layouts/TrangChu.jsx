@@ -27,6 +27,7 @@ import {
 
 import "./TrangChu.css";
 import API from "../Api";
+import { layCauHinhWebsite } from "../services/admin/CauHinhWebsiteService";
 
 const API_IMAGE_URL = API.BACKEND;
 
@@ -116,18 +117,13 @@ function TrangChu() {
           layTinTucMoiNhat(),
 
           // Nếu tải cấu hình lỗi thì các dữ liệu khác vẫn hiển thị bình thường
-          fetch(API.CAU_HINH_WEBSITE)
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Không thể tải cấu hình website");
-              }
-              return response.json();
-            })
-            .catch((error) => {
-              console.error("Lỗi tải cấu hình website:", error);
-              return null;
-            }),
+          layCauHinhWebsite().catch((error) => {
+            console.error("Lỗi tải cấu hình website:", error);
+            return null;
+          }),
         ]);
+
+
 
         setCauHinhWebsite(cauHinhData);
 
