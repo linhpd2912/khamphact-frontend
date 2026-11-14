@@ -7,7 +7,7 @@ const API_BASE_URL = `${API.BACKEND}/api`;
 const API_DANG_KY_HOP_TAC = `${API_BASE_URL}/dang-ky-hop-tac`;
 
 const API_ADMIN_DANG_KY_HOP_TAC =
-  `${API_BASE_URL}/ad/dang-ky-hop-tac`;
+  `${API_BASE_URL}/admin/dang-ky-hop-tac`;
 
 // ==========================================
 // HÀM XỬ LÝ RESPONSE CHUNG
